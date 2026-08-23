@@ -1,1586 +1,706 @@
-[8/22/2026 7:27 PM] Paulos Bunaro: <!DOCTYPE html>
+[8/22/2026 7:39 PM] Paulos Bunaro: <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Paul Academy | Learn • Grow • Succeed</title>
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#f5f8ff;
-    color:#172033;
-}
-
-/* ================= NAVBAR ================= */
-
-nav{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    z-index:1000;
-    background:rgba(255,255,255,.96);
-    backdrop-filter:blur(12px);
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:16px 6%;
-    box-shadow:0 5px 25px rgba(0,0,0,.08);
-}
-
-.logo{
-    font-size:25px;
-    font-weight:900;
-    color:#0757d5;
-}
-
-.logo span{
-    color:#ff8c00;
-}
-
-.navlinks{
-    display:flex;
-    gap:25px;
-}
-
-.navlinks a{
-    text-decoration:none;
-    color:#172033;
-    font-weight:bold;
-}
-
-.navlinks a:hover{
-    color:#0757d5;
-}
-
-/* ================= HERO ================= */
-
-.hero{
-    min-height:100vh;
-    padding:150px 7% 100px;
-    display:flex;
-    align-items:center;
-    position:relative;
-    overflow:hidden;
-    color:white;
-
-    background:
-    linear-gradient(
-        90deg,
-        rgba(2,24,63,.96),
-        rgba(2,42,100,.78),
-        rgba(2,42,100,.20)
-    ),
-    url("student.jpg");
-
-    background-size:cover;
-    background-position:center;
-}
-
-.hero-content{
-    max-width:780px;
-    position:relative;
-    z-index:2;
-}
-
-.badge{
-    display:inline-block;
-    padding:10px 20px;
-    border-radius:50px;
-    background:rgba(255,255,255,.15);
-    border:1px solid rgba(255,255,255,.35);
-    backdrop-filter:blur(8px);
-    margin-bottom:22px;
-    font-weight:bold;
-}
-
-.hero h1{
-    font-size:clamp(45px,7vw,78px);
-    line-height:1.05;
-    font-weight:900;
-}
-
-.hero h1 span{
-    color:#ffad25;
-}
-
-.hero p{
-    font-size:19px;
-    line-height:1.8;
-    margin:25px 0 32px;
-    color:#e9f1ff;
-    max-width:700px;
-}
-
-.btn{
-    display:inline-block;
-    padding:14px 24px;
-    border-radius:12px;
-    text-decoration:none;
-    font-weight:bold;
-    border:none;
-    cursor:pointer;
-    font-size:15px;
-}
-
-.primary{
-    background:#ff8c00;
-    color:white;
-}
-
-.secondary{
-    background:white;
-    color:#0757d5;
-    margin-left:8px;
-}
-
-.btn:hover{
-    transform:translateY(-2px);
-}
-
-/* ================= QUICK CARDS ================= */
-
-.quick{
-    width:88%;
-    margin:-55px auto 0;
-    position:relative;
-    z-index:5;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:18px;
-}
-
-.quick-card{
-    background:white;
-    padding:25px 15px;
-    border-radius:20px;
-    text-align:center;
-    box-shadow:0 12px 35px rgba(0,0,0,.10);
-}
-
-.quick-card .icon{
-    font-size:35px;
-}
-
-.quick-card h3{
-    margin:7px 0;
-}
-
-.quick-card p{
-    color:#667085;
-    font-size:13px;
-}
-
-/* ================= GENERAL ================= */
-
-section{
-    padding:90px 7%;
-}
-
-.title{
-    text-align:center;
-    max-width:800px;
-    margin:0 auto 45px;
-}
-
-.title h2{
-    font-size:40px;
-    margin-bottom:12px;
-}
-
-.title p{
-    color:#667085;
-}
-
-/* ================= GRADE ================= */
-
-.grade-section{
-    background:#f5f8ff;
-}
-
-.grades{
-    max-width:1200px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:20px;
-}
-
-.grade-card{
-    background:white;
-    border-radius:20px;
-    padding:28px 15px;
-    text-align:center;
-    cursor:pointer;
-    border:2px solid transparent;
-    box-shadow:0 8px 25px rgba(0,0,0,.07);
-    transition:.25s;
-}
-
-.grade-card:hover,
-.grade-card.active{
-    transform:translateY(-7px);
-    border-color:#0757d5;
-    box-shadow:0 15px 35px rgba(7,87,213,.15);
-}
-
-.grade-icon{
-    font-size:38px;
-}
-
-.grade-card h3{
-    color:#0757d5;
-    margin-top:8px;
-}
-
-.grade-card p{
-    color:#667085;
-    font-size:13px;
-    margin-top:5px;
-}
-
-/* ================= SUBJECT ================= */
-
-.subject-section{
-    background:white;
-}
-
-.selected-grade{
-    text-align:center;
-    margin-bottom:30px;
-}
-[8/22/2026 7:27 PM] Paulos Bunaro: .selected-grade span{
-    background:#e8f1ff;
-    color:#0757d5;
-    padding:10px 20px;
-    border-radius:30px;
-    font-weight:bold;
-}
-
-.subjects{
-    max-width:1200px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:18px;
-}
-
-.subject-card{
-    background:linear-gradient(145deg,#ffffff,#f1f6ff);
-    border:1px solid #dce6f5;
-    border-radius:18px;
-    padding:23px;
-    transition:.25s;
-}
-
-.subject-card:hover{
-    transform:translateY(-6px);
-    box-shadow:0 15px 35px rgba(0,0,0,.09);
-}
-
-.subject-number{
-    width:42px;
-    height:42px;
-    border-radius:12px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:#e5efff;
-    color:#0757d5;
-    font-weight:900;
-    margin-bottom:13px;
-}
-
-.subject-card h3{
-    margin-bottom:8px;
-}
-
-.subject-card p{
-    color:#667085;
-    font-size:13px;
-    min-height:42px;
-}
-
-.subject-btn{
-    width:100%;
-    border:0;
-    margin-top:15px;
-    padding:11px;
-    border-radius:10px;
-    background:#0757d5;
-    color:white;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.subject-btn:hover{
-    background:#003e9c;
-}
-
-/* ================= LEARNING ================= */
-
-.learning{
-    display:none;
-    background:#f5f8ff;
-}
-
-.learning-box{
-    max-width:1200px;
-    margin:auto;
-}
-
-.back-btn{
-    border:0;
-    background:#e7efff;
-    color:#0757d5;
-    padding:11px 18px;
-    border-radius:10px;
-    cursor:pointer;
-    font-weight:bold;
-}
-
-.learning-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:20px;
-    flex-wrap:wrap;
-    margin:25px 0 35px;
-}
-
-.learning-header h2{
-    font-size:38px;
-}
-
-.lesson-title{
-    margin-top:30px;
-    margin-bottom:20px;
-}
-
-.lessons{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-}
-
-.lesson{
-    background:white;
-    border-radius:18px;
-    padding:22px;
-    box-shadow:0 7px 25px rgba(0,0,0,.06);
-}
-
-.lesson h3{
-    color:#0757d5;
-}
-
-.lesson p{
-    color:#667085;
-    font-size:13px;
-    margin:7px 0 15px;
-}
-
-.lesson-actions{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:8px;
-}
-
-.lesson-actions button{
-    padding:10px 5px;
-    border-radius:9px;
-    border:1px solid #d9e3f2;
-    background:#f8faff;
-    color:#0757d5;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.lesson-actions button:hover{
-    background:#0757d5;
-    color:white;
-}
-
-/* ================= EXAM ================= */
-
-.exam-section{
-    margin-top:45px;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.exam-card{
-    padding:28px;
-    border-radius:20px;
-    color:white;
-    background:linear-gradient(135deg,#0757d5,#022b68);
-}
-
-.exam-card.orange{
-    background:linear-gradient(135deg,#ff9a00,#e85d00);
-}
-
-.exam-card.green{
-    background:linear-gradient(135deg,#079455,#00613b);
-}
-
-.exam-card h3{
-    font-size:22px;
-    margin-bottom:10px;
-}
-
-.exam-card p{
-    color:#e8f1ff;
-    font-size:14px;
-}
-
-/* ================= ABOUT ================= */
-
-.about{
-    background:#eef4ff;
-}
-
-.about-grid{
-    max-width:1150px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:50px;
-    align-items:center;
-}
-
-.about-photo{
-    height:450px;
-    border-radius:30px;
-    background:
-    linear-gradient(rgba(0,40,100,.12),rgba(0,40,100,.12)),
-    url("student.jpg");
-    background-size:cover;
-    background-position:center;
-    box-shadow:0 20px 50px rgba(0,0,0,.15);
-}
-
-.about-text h2{
-    font-size:40px;
-}
-
-.about-text p{
-    color:#667085;
-    margin:17px 0;
-    line-height:1.8;
-}
-
-.points{
-    display:grid;
-    gap:10px;
-}
-
-.points div{
-    background:white;
-    padding:13px 15px;
-    border-radius:10px;
-    font-weight:bold;
-}
-
-/* ================= FEATURES ================= */
-
-.features{
-    background:white;
-}
-
-.feature-grid{
-    max-width:1150px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.feature{
-    background:#f5f8ff;
-    border-radius:20px;
-    padding:27px;
-}
-
-.feature-icon{
-    font-size:35px;
-    margin-bottom:10px;
-}
-[8/22/2026 7:27 PM] Paulos Bunaro: .feature p{
-    color:#667085;
-    font-size:14px;
-    margin-top:7px;
-}
-
-/* ================= CONTACT ================= */
-
-.contact{
-    background:linear-gradient(135deg,#022b68,#0757d5);
-    color:white;
-}
-
-.contact-grid{
-    max-width:1050px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:30px;
-    align-items:center;
-}
-
-.contact h2{
-    font-size:42px;
-}
-
-.contact p{
-    color:#dbe8ff;
-    margin-top:12px;
-}
-
-.contact-card{
-    background:white;
-    color:#172033;
-    padding:25px;
-    border-radius:22px;
-}
-
-.contact-item{
-    background:#f4f7fc;
-    padding:15px;
-    border-radius:10px;
-    margin-bottom:10px;
-}
-
-.contact-item strong{
-    display:block;
-    color:#0757d5;
-    margin-bottom:4px;
-}
-
-/* ================= FOOTER ================= */
-
-footer{
-    background:#101828;
-    color:white;
-    text-align:center;
-    padding:35px 20px;
-}
-
-footer h3{
-    font-size:22px;
-}
-
-footer span{
-    color:#ff9500;
-}
-
-footer p{
-    color:#98a2b3;
-    margin-top:7px;
-}
-
-/* ================= MODAL ================= */
-
-.modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,20,50,.75);
-    z-index:2000;
-    padding:20px;
-}
-
-.modal-box{
-    max-width:650px;
-    margin:60px auto;
-    background:white;
-    padding:30px;
-    border-radius:22px;
-    position:relative;
-}
-
-.close{
-    position:absolute;
-    right:20px;
-    top:8px;
-    font-size:32px;
-    cursor:pointer;
-}
-
-.resource{
-    background:#f3f7ff;
-    padding:15px;
-    border-left:4px solid #0757d5;
-    border-radius:8px;
-    margin:10px 0;
-}
-
-/* ================= MOBILE ================= */
-
-@media(max-width:950px){
-
-    .quick{
-        grid-template-columns:1fr 1fr;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>LearnHub Ethiopia | Learn • Practice • Succeed</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
     }
 
-    .grades{
-        grid-template-columns:repeat(3,1fr);
+    body {
+      background: #f5f8ff;
+      color: #172033;
     }
 
-    .subjects{
-        grid-template-columns:repeat(2,1fr);
+    /* NAVBAR */
+    nav {
+      width: 100%;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.08);
     }
 
-    .lessons{
-        grid-template-columns:1fr 1fr;
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+      color: #2563eb;
     }
 
-    .about-grid,
-    .contact-grid{
-        grid-template-columns:1fr;
+    .logo span {
+      color: #f59e0b;
     }
 
-    .feature-grid{
-        grid-template-columns:1fr 1fr;
+    nav ul {
+      display: flex;
+      gap: 25px;
+      list-style: none;
     }
 
-    .exam-section{
-        grid-template-columns:1fr;
-    }
-}
-
-@media(max-width:600px){
-
-    nav{
-        padding:13px 5%;
+    nav ul li a {
+      text-decoration: none;
+      color: #172033;
+      font-weight: 600;
+      transition: .3s;
     }
 
-    .navlinks{
-        gap:9px;
+    nav ul li a:hover {
+      color: #2563eb;
     }
 
-    .navlinks a{
-        font-size:11px;
+    .nav-btn {
+      background: #2563eb;
+      color: white !important;
+      padding: 11px 20px;
+      border-radius: 25px;
     }
 
-    .hero{
-        padding:130px 6% 90px;
-        background-position:center;
+    /* HERO */
+    .hero {
+      min-height: 650px;
+      padding: 80px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      background:
+        linear-gradient(135deg, #eaf2ff, #ffffff);
     }
 
-    .hero h1{
-        font-size:45px;
+    .hero-text {
+      width: 52%;
     }
 
-    .hero p{
-        font-size:16px;
+    .hero-text small {
+      display: inline-block;
+      background: #dbeafe;
+      color: #2563eb;
+      padding: 9px 17px;
+      border-radius: 30px;
+      font-weight: bold;
+      margin-bottom: 20px;
     }
 
-    .secondary{
-        margin-left:0;
-        margin-top:10px;
+    .hero-text h1 {
+      font-size: 55px;
+      line-height: 1.1;
+      margin-bottom: 20px;
     }
 
-    .quick{
-        width:90%;
-        grid-template-columns:1fr 1fr;
+    .hero-text h1 span {
+      color: #2563eb;
     }
 
-    .grades{
-        grid-template-columns:1fr 1fr;
+    .hero-text p {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #64748b;
+      max-width: 600px;
+      margin-bottom: 30px;
     }
 
-    .subjects{
-        grid-template-columns:1fr;
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
     }
 
-    .lessons{
-        grid-template-columns:1fr;
+    .primary-btn,
+    .secondary-btn {
+      padding: 15px 27px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: .3s;
     }
 
-    .feature-grid{
-        grid-template-columns:1fr;
+    .primary-btn {
+      background: #2563eb;
+      color: white;
+      box-shadow: 0 10px 25px rgba(37,99,235,.25);
     }
 
-    .about-photo{
-        height:330px;
+    .secondary-btn {
+      background: white;
+      color: #2563eb;
+      border: 2px solid #2563eb;
     }
 
-    section{
-        padding:70px 6%;
+    .primary-btn:hover,
+    .secondary-btn:hover {
+      transform: translateY(-4px);
     }
 
-    .title h2,
-    .about-text h2{
-        font-size:32px;
+    /* HERO CARD */
+    .hero-card {
+      width: 400px;
+      height: 430px;
+      border-radius: 35px;
+      padding: 30px;
+      background: linear-gradient(145deg, #2563eb, #7c3aed);
+      box-shadow: 0 25px 60px rgba(37,99,235,.25);
+      color: white;
+      position: relative;
+      overflow: hidden;
     }
-}
-</style>
+
+    .hero-card h2 {
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .hero-card p {
+      line-height: 1.6;
+      opacity: .9;
+    }
+
+    .student-icon {
+      font-size: 120px;
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .floating {
+      position: absolute;
+      background: white;
+      color: #172033;
+      padding: 14px 20px;
+      border-radius: 15px;
+      font-weight: bold;
+      box-shadow: 0 10px 30px rgba(0,0,0,.15);
+    }
+
+    .float1 {
+      top: 40px;
+      right: -10px;
+    }
+
+    .float2 {
+      bottom: 40px;
+      left: -10px;
+    }
+
+    /* SECTION */
+    section {
+      padding: 80px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
+
+    .section-title p {
+      color: #64748b;
+      font-size: 17px;
+    }
+
+    /* GRADES */
+    .grades {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+    }
+[8/22/2026 7:39 PM] Paulos Bunaro: .grade {
+      background: white;
+      padding: 28px 20px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0,0,0,.06);
+      transition: .3s;
+      border: 1px solid #edf2f7;
+    }
+
+    .grade:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(37,99,235,.15);
+    }
+
+    .grade-icon {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .grade h3 {
+      margin-bottom: 8px;
+    }
+
+    .grade p {
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    /* RESOURCES */
+    .resources {
+      background: #eef4ff;
+    }
+
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 22px;
+    }
+
+    .resource {
+      background: white;
+      padding: 30px;
+      border-radius: 22px;
+      transition: .3s;
+    }
+
+    .resource:hover {
+      transform: translateY(-7px);
+    }
+
+    .resource .icon {
+      font-size: 42px;
+      margin-bottom: 18px;
+    }
+
+    .resource h3 {
+      margin-bottom: 10px;
+    }
+
+    .resource p {
+      color: #64748b;
+      line-height: 1.6;
+    }
+
+    /* EXAM */
+    .exam-box {
+      background: linear-gradient(135deg, #172554, #2563eb);
+      color: white;
+      padding: 55px;
+      border-radius: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .exam-box h2 {
+      font-size: 35px;
+      margin-bottom: 15px;
+    }
+
+    .exam-box p {
+      opacity: .9;
+      line-height: 1.7;
+      max-width: 650px;
+    }
+
+    .exam-btn {
+      background: white;
+      color: #2563eb;
+      padding: 15px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    /* UNIVERSITY */
+    .university {
+      text-align: center;
+    }
+
+    .university-card {
+      background: white;
+      padding: 35px;
+      border-radius: 30px;
+      box-shadow: 0 15px 40px rgba(0,0,0,.08);
+    }
+
+    .university-photo {
+      width: 100%;
+      max-height: 350px;
+      object-fit: cover;
+      border-radius: 22px;
+      margin-bottom: 25px;
+    }
+
+    .university-card h2 {
+      margin-bottom: 12px;
+    }
+
+    .university-card p {
+      color: #64748b;
+      line-height: 1.7;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0f172a;
+      color: white;
+      padding: 55px 7% 25px;
+      text-align: center;
+    }
+
+    footer h2 {
+      margin-bottom: 15px;
+    }
+
+    footer p {
+      color: #94a3b8;
+      margin-bottom: 25px;
+    }
+
+    .copyright {
+      border-top: 1px solid #334155;
+      padding-top: 20px;
+      color: #94a3b8;
+      font-size: 14px;
+    }
+
+    /* MOBILE */
+    @media(max-width: 800px) {
+
+      nav ul {
+        display: none;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 60px;
+      }
+
+      .hero-text {
+        width: 100%;
+      }
+
+      .hero-text h1 {
+        font-size: 40px;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      .hero-card {
+        width: 100%;
+        max-width: 400px;
+      }
+
+      .exam-box {
+        flex-direction: column;
+        text-align: center;
+        padding: 35px 25px;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
-
-<nav>
-
-<div class="logo">
-Paul <span>Academy</span>
-</div>
-
-<div class="navlinks">
-<a href="#home">Home</a>
-<a href="#grades">Grades</a>
-<a href="#subjects">Subjects</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
-</div>
-
-</nav>
-
-
-<!-- ================= HERO ================= -->
-
-<section class="hero" id="home">
-
-<div class="hero-content">
-
-<div class="badge">
-🎓 KG – Grade 12 • Wolaitta Sodo
-</div>
-
-<h1>
-Learn Smart.<br>
-<span>Build Your Future.</span>
-</h1>
-
-<p>
-A complete learning platform for students from Grade 1 to Grade 12.
-Choose your Grade and Subject, then learn through video lessons,
-books, short notes, questions and answers, and exam preparation.
-</p>
-
-<a href="#grades" class="btn primary">
-🚀 Start Learning
-</a>
-
-<a href="#about" class="btn secondary">
-Learn More
-</a>
-
-</div>
-
-</section>
-
-
-<!-- ================= QUICK ================= -->
-
-<div class="quick">
-
-<div class="quick-card">
-<div class="icon">🎬</div>
-<h3>Video Lessons</h3>
-<p>Learn every lesson through video.</p>
-</div>
-[8/22/2026 7:27 PM] Paulos Bunaro: <div class="quick-card">
-<div class="icon">📚</div>
-<h3>Books & Notes</h3>
-<p>Study organized materials.</p>
-</div>
-
-<div class="quick-card">
-<div class="icon">📝</div>
-<h3>Questions & Answers</h3>
-<p>Practice and check your answers.</p>
-</div>
-
-<div class="quick-card">
-<div class="icon">🏆</div>
-<h3>Exam Preparation</h3>
-<p>Prepare for important exams.</p>
-</div>
-
-</div>
-
-
-<!-- ================= GRADES ================= -->
-
-<section class="grade-section" id="grades">
-
-<div class="title">
-
-<h2>
-🎓 Choose Your Grade
-</h2>
-
-<p>
-Select Grade 1–12. Your Grade's subjects will appear below.
-</p>
-
-</div>
-
-<div class="grades" id="gradeList"></div>
-
-</section>
-
-
-<!-- ================= SUBJECTS ================= -->
-
-<section class="subject-section" id="subjects">
-
-<div class="title">
-
-<h2>
-📚 Choose Your Subject
-</h2>
-
-<p>
-First select a Grade above, then choose any subject.
-</p>
-
-</div>
-
-<div class="selected-grade">
-<span id="selectedGrade">
-Please select a Grade
-</span>
-</div>
-
-<div class="subjects" id="subjectList"></div>
-
-</section>
-
-
-<!-- ================= LEARNING ================= -->
-
-<section class="learning" id="learning">
-
-<div class="learning-box">
-
-<button class="back-btn" onclick="goBack()">
-← Back
-</button>
-
-<div class="learning-header">
-
-<div>
-<h2 id="learningTitle"></h2>
-<p style="color:#667085;">
-Lessons • Video • Book • Short Note • Questions & Answers
-</p>
-</div>
-
-</div>
-
-
-<h2 class="lesson-title">
-📖 Lessons
-</h2>
-
-<div class="lessons" id="lessonList"></div>
-
-
-<div class="exam-section">
-
-<div class="exam-card">
-<h3>🎯 Regional Exam</h3>
-<p>
-Special preparation for Grade 6 and Grade 8 regional examinations.
-</p>
-<br>
-<button class="btn secondary"
-onclick="openExam('Regional Examination')">
-Open Preparation
-</button>
-</div>
-
-<div class="exam-card orange">
-<h3>🏆 Grade 12 Entrance</h3>
-<p>
-Entrance examination questions, answers, books and video preparation.
-</p>
-<br>
-<button class="btn secondary"
-onclick="openExam('Grade 12 Entrance Examination')">
-Open Preparation
-</button>
-</div>
-
-<div class="exam-card green">
-<h3>📝 Practice Tests</h3>
-<p>
-Practice questions and answers to help students improve their results.
-</p>
-<br>
-<button class="btn secondary"
-onclick="openExam('Practice Tests')">
-Start Practice
-</button>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= ABOUT ================= -->
-
-<section class="about" id="about">
-
-<div class="about-grid">
-
-<div class="about-photo"></div>
-
-<div class="about-text">
-
-<h2>
-🎓 Learn With Confidence
-</h2>
-
-<p>
-Paul Academy provides organized learning support for students
-from Grade 1 to Grade 12. Students can access lessons,
-educational videos, books, short notes and practice questions.
-</p>
-
-<div class="points">
-
-<div>👨‍🏫 Skilled & dedicated teachers</div>
-
-<div>🎓 University-style learning environment</div>
-
-<div>🏫 Classroom & educational-center learning</div>
-
-<div>🎬 Video-based teaching</div>
-
-<div>📚 Organized books & study materials</div>
-
-<div>📝 Questions & answers</div>
-
-<div>🏆 Regional & entrance exam preparation</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= FEATURES ================= -->
-
-<section class="features">
-
-<div class="title">
-
-<h2>
-✨ Everything In One Place
-</h2>
-
-<p>
-All learning resources organized by Grade and Subject.
-</p>
-
-</div>
-
-<div class="feature-grid">
-
-<div class="feature">
-<div class="feature-icon">🎬</div>
-<h3>Video Learning</h3>
-<p>
-Lesson-by-lesson video teaching.
-</p>
-</div>
-
-<div class="feature">
-<div class="feature-icon">📖</div>
-<h3>Books</h3>
-<p>
-Organized books and learning materials.
-</p>
-</div>
-
-<div class="feature">
-<div class="feature-icon">📝</div>
-<h3>Short Notes</h3>
-<p>
-Important points summarized for easy revision.
-</p>
-</div>
-
-<div class="feature">
-<div class="feature-icon">❓</div>
-<h3>Questions & Answers</h3>
-<p>
-Practice questions with answers.
-</p>
-</div>
-
-<div class="feature">
-<div class="feature-icon">🎯</div>
-<h3>Exam Preparation</h3>
-<p>
-Regional and entrance exam preparation.
-</p>
-</div>
-[8/22/2026 7:27 PM] Paulos Bunaro: <div class="feature">
-<div class="feature-icon">⭐</div>
-<h3>Organized Learning</h3>
-<p>
-Grade → Subject → Lesson → Resources.
-</p>
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= CONTACT ================= -->
-
-<section class="contact" id="contact">
-
-<div class="contact-grid">
-
-<div>
-
-<h2>
-📍 Contact Paul Academy
-</h2>
-
-<p>
-For registration, learning information and student support,
-contact us.
-</p>
-
-<p>
-📍 Wolaitta Sodo, Ethiopia
-</p>
-
-</div>
-
-<div class="contact-card">
-
-<div class="contact-item">
-<strong>📞 Phone</strong>
-0916061053
-</div>
-
-<div class="contact-item">
-<strong>📞 Phone</strong>
-0922944462
-</div>
-
-<div class="contact-item">
-<strong>📍 Address</strong>
-Wolaitta Sodo
-</div>
-
-<div class="contact-item">
-<strong>🎓 Education</strong>
-Grade 1 – Grade 12
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer>
-
-<h3>
-Paul <span>Academy</span>
-</h3>
-
-<p>
-Learn • Grow • Succeed
-</p>
-
-<p>
-© 2026 Paul Academy • Wolaitta Sodo
-</p>
-
-</footer>
-
-
-<!-- ================= MODAL ================= -->
-
-<div class="modal" id="modal">
-
-<div class="modal-box">
-
-<span class="close" onclick="closeModal()">×</span>
-
-<h2 id="modalTitle"></h2>
-
-<div id="modalBody"></div>
-
-</div>
-
-</div>
-
-
-<script>
-
-/* =========================================
-   GRADE + SUBJECT DATA
-========================================= */
-
-const subjects = {
-
-"Grade 1":[
-"Amharic",
-"English",
-"Mathematics",
-"Environmental Science",
-"Moral Education",
-"Health & Physical Education",
-"ICT"
-],
-
-"Grade 2":[
-"Amharic",
-"English",
-"Mathematics",
-"Environmental Science",
-"Moral Education",
-"Health & Physical Education",
-"ICT"
-],
-
-"Grade 3":[
-"Amharic",
-"English",
-"Mathematics",
-"Environmental Science",
-"Moral Education",
-"Health & Physical Education",
-"ICT"
-],
-
-"Grade 4":[
-"Amharic",
-"English",
-"Mathematics",
-"Environmental Science",
-"Moral Education",
-"Health & Physical Education",
-"ICT"
-],
-
-"Grade 5":[
-"Amharic",
-"English",
-"Mathematics",
-"Environmental Science",
-"Moral Education",
-"Health & Physical Education",
-"ICT"
-],
-
-"Grade 6":[
-"Amharic",
-"English",
-"Mathematics",
-"Environmental Science",
-"Moral Education",
-"Health & Physical Education",
-"ICT"
-],
-
-"Grade 7":[
-"Amharic",
-"English",
-"Mathematics",
-"General Science",
-"Social Studies",
-"Citizenship",
-"Information Technology",
-"Performing & Visual Art",
-"Health & Physical Education"
-],
-
-"Grade 8":[
-"Amharic",
-"English",
-"Mathematics",
-"General Science",
-"Social Science",
-"Citizenship",
-"Information Technology",
-"Performing & Visual Art",
-"Health & Physical Education"
-],
-
-"Grade 9":[
-"English",
-"Mathematics",
-"Physics",
-"Chemistry",
-"Biology",
-"Geography",
-"History",
-"Citizenship",
-"Economics",
-"Information Technology",
-"Health & Physical Education",
-"Performing & Visual Art"
-],
-
-"Grade 10":[
-"English",
-"Mathematics",
-"Physics",
-"Chemistry",
-"Biology",
-"Geography",
-"History",
-"Citizenship",
-"Economics",
-"Information Technology",
-"Health & Physical Education",
-"Performing & Visual Art"
-],
-
-"Grade 11":[
-"English",
-"Mathematics",
-"Biology",
-"Chemistry",
-"Physics",
-"Information Technology",
-"Scholastic Aptitude",
-"History",
-"Agriculture"
-],
-
-"Grade 12":[
-"English",
-"Mathematics",
-"Biology",
-"Chemistry",
-"Physics",
-"Information Technology",
-"Scholastic Aptitude",
-"History",
-"Agriculture"
-]
-
-};
-
-
-/* =========================================
-   CREATE GRADE CARDS
-========================================= */
-
-const gradeList =
-document.getElementById("gradeList");
-
-for(let i=1;i<=12;i++){
-
-    let grade="Grade "+i;
-
-    gradeList.innerHTML += 
-
-    <div class="grade-card"
-         onclick="selectGrade('${grade}')">
-
-        <div class="grade-icon">
-            🎓
-        </div>
-
-        <h3>${grade}</h3>
-
-        <p>
-            ${subjects[grade].length} Subjects
-        </p>
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo">Learn<span>Hub</span> 🇪🇹</div>
+
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#grades">Grades</a></li>
+      <li><a href="#resources">Resources</a></li>
+      <li><a href="#exam">Exams</a></li>
+      <li><a href="#university">University</a></li>
+      <li><a href="#grades" class="nav-btn">Start Learning</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- HERO -->
+  <div class="hero">
+
+    <div class="hero-text">
+
+      <small>🎓 Ethiopian Students Learning Platform</small>
+
+      <h1>
+        Learn Better.<br>
+        <span>Practice More.</span><br>
+        Succeed.
+      </h1>
+
+      <p>
+        Access lessons, short notes, video tutorials, books,
+        questions and answers, exam papers and entrance exam
+        preparation — all in one place.
+      </p>
+[8/22/2026 7:39 PM] Paulos Bunaro: <div class="buttons">
+        <a href="#grades" class="primary-btn">
+          🚀 Start Learning
+        </a>
+
+        <a href="#resources" class="secondary-btn">
+          📚 Explore Resources
+        </a>
+      </div>
 
     </div>
 
-    ;
-}
+
+    <div class="hero-card">
+
+      <h2>📚 Your Learning Journey</h2>
+
+      <p>
+        From Grade 1 to Grade 12, prepare yourself with
+        organized learning materials.
+      </p>
+
+      <div class="student-icon">🎓</div>
+
+      <div class="floating float1">
+        🎥 Video Lessons
+      </div>
+
+      <div class="floating float2">
+        📝 Exam Practice
+      </div>
+
+    </div>
+
+  </div>
 
 
-/* =========================================
-   SELECT GRADE
-========================================= */
+  <!-- GRADES -->
+  <section id="grades">
 
-let selectedGrade="";
+    <div class="section-title">
+      <h2>📖 Choose Your Grade</h2>
+      <p>Select your grade and start learning.</p>
+    </div>
 
-function selectGrade(grade){
+    <div class="grades">
 
-    selectedGrade=grade;
+      <div class="grade">
+        <div class="grade-icon">🧒</div>
+        <h3>Grade 1</h3>
+        <p>Basic Learning</p>
+      </div>
 
-    document.getElementById("selectedGrade")
-    .innerText=grade+" Subjects";
-[8/22/2026 7:27 PM] Paulos Bunaro: const list=
-    document.getElementById("subjectList");
+      <div class="grade">
+        <div class="grade-icon">📘</div>
+        <h3>Grade 2</h3>
+        <p>Elementary Learning</p>
+      </div>
 
-    list.innerHTML="";
+      <div class="grade">
+        <div class="grade-icon">📗</div>
+        <h3>Grade 3</h3>
+        <p>Elementary Learning</p>
+      </div>
 
-    subjects[grade].forEach((subject,index)=>{
+      <div class="grade">
+        <div class="grade-icon">📕</div>
+        <h3>Grade 4</h3>
+        <p>Elementary Learning</p>
+      </div>
 
-        list.innerHTML += 
+      <div class="grade">
+        <div class="grade-icon">📙</div>
+        <h3>Grade 5</h3>
+        <p>Elementary Learning</p>
+      </div>
 
-        <div class="subject-card">
+      <div class="grade">
+        <div class="grade-icon">📝</div>
+        <h3>Grade 6</h3>
+        <p>Regional Exam Preparation</p>
+      </div>
 
-            <div class="subject-number">
-                ${index+1}
-            </div>
+      <div class="grade">
+        <div class="grade-icon">📚</div>
+        <h3>Grade 7</h3>
+        <p>Middle School</p>
+      </div>
 
-            <h3>${subject}</h3>
+      <div class="grade">
+        <div class="grade-icon">🎯</div>
+        <h3>Grade 8</h3>
+        <p>Exam Preparation</p>
+      </div>
 
-            <p>
-            Video lessons, books, short notes,
-            questions and answers.
-            </p>
+      <div class="grade">
+        <div class="grade-icon">📖</div>
+        <h3>Grade 9</h3>
+        <p>Secondary School</p>
+      </div>
 
-            <button class="subject-btn"
-            onclick="openSubject('${grade}','${subject}')">
+      <div class="grade">
+        <div class="grade-icon">🔬</div>
+        <h3>Grade 10</h3>
+        <p>Secondary School</p>
+      </div>
 
-            Open Subject →
+      <div class="grade">
+        <div class="grade-icon">🎓</div>
+        <h3>Grade 11</h3>
+        <p>Preparatory School</p>
+      </div>
 
-            </button>
+      <div class="grade">
+        <div class="grade-icon">🏆</div>
+        <h3>Grade 12</h3>
+        <p>Entrance Exam Preparation</p>
+      </div>
 
-        </div>
+    </div>
 
-        ;
-
-    });
-
-    document.getElementById("subjects")
-    .scrollIntoView({
-        behavior:"smooth"
-    });
-}
-
-
-/* =========================================
-   OPEN SUBJECT
-========================================= */
-
-function openSubject(grade,subject){
-
-    document.getElementById("learning")
-    .style.display="block";
-
-    document.getElementById("learningTitle")
-    .innerText=
-    grade+" • "+subject;
-
-    const lessons=
-    document.getElementById("lessonList");
-
-    lessons.innerHTML="";
-
-    for(let i=1;i<=12;i++){
-
-        lessons.innerHTML += 
-
-        <div class="lesson">
-
-            <h3>
-                Lesson ${i}
-            </h3>
-
-            <p>
-                ${subject} • Lesson ${i}
-            </p>
-
-            <div class="lesson-actions">
-
-                <button
-                onclick="openResource(
-                '${subject}',
-                'Lesson ${i}',
-                '🎬 Video Lesson')">
-
-                🎬 Video
-
-                </button>
-
-                <button
-                onclick="openResource(
-                '${subject}',
-                'Lesson ${i}',
-                '📖 Book')">
-
-                📖 Book
-
-                </button>
-
-                <button
-                onclick="openResource(
-                '${subject}',
-                'Lesson ${i}',
-                '📝 Short Note')">
-
-                📝 Note
-
-                </button>
-
-                <button
-                onclick="openResource(
-                '${subject}',
-                'Lesson ${i}',
-                '❓ Questions & Answers')">
-
-                ❓ Q&A
-
-                </button>
-
-            </div>
-
-        </div>
-
-        ;
-    }
-
-    document.getElementById("learning")
-    .scrollIntoView({
-        behavior:"smooth"
-    });
-}
+  </section>
 
 
-/* =========================================
-   RESOURCE
-========================================= */
+  <!-- RESOURCES -->
+  <section id="resources" class="resources">
 
-function openResource(subject,lesson,type){
+    <div class="section-title">
+      <h2>✨ Everything You Need</h2>
+      <p>All learning resources organized in one place.</p>
+    </div>
 
-    document.getElementById("modalTitle")
-    .innerText=type;
+    <div class="resource-grid">
 
-    document.getElementById("modalBody")
-    .innerHTML=
-
-        <div class="resource">
-        <strong>Subject:</strong>
-        ${subject}
-        </div>
-
-        <div class="resource">
-        <strong>Lesson:</strong>
-        ${lesson}
-        </div>
-
-        <div class="resource">
-        <strong>Resource:</strong>
-        ${type}
-        </div>
-
-        <p style="margin-top:20px;color:#667085;">
-        Your real video, PDF book, short note
-        or questions and answers can be connected
-        here later.
+      <div class="resource">
+        <div class="icon">🎥</div>
+        <h3>Video Lessons</h3>
+        <p>
+          Learn difficult topics through clear and
+          understandable video lessons.
         </p>
+      </div>
 
-    ;
+      <div class="resource">
+        <div class="icon">📝</div>
+        <h3>Questions & Answers</h3>
+        <p>
+          Practice questions and check detailed answers
+          to improve your understanding.
+        </p>
+      </div>
 
-    document.getElementById("modal")
-    .style.display="block";
-}
+      <div class="resource">
+        <div class="icon">📄</div>
+        <h3>Exam Papers</h3>
+        <p>
+          Prepare using previous and practice examination
+          papers.
+        </p>
+      </div>
 
+      <div class="resource">
+        <div class="icon">📚</div>
+        <h3>Books & Notes</h3>
+        <p>
+          Find short notes, reference books and useful
+          study materials.
+        </p>
+      </div>
 
-/* =========================================
-   EXAM PREPARATION
-========================================= */
+      <div class="resource">
+        <div class="icon">🎯</div>
+        <h3>Practice Tests</h3>
+        <p>
+          Test your knowledge and discover areas that
+          need more practice.
+        </p>
+      </div>
+[8/22/2026 7:39 PM] Paulos Bunaro: <div class="resource">
+        <div class="icon">🏆</div>
+        <h3>Entrance Preparation</h3>
+        <p>
+          Prepare for Grade 12 entrance examinations
+          with organized resources.
+        </p>
+      </div>
 
-function openExam(type){
+    </div>
 
-    document.getElementById("modalTitle")
-    .innerText=type;
-
-    document.getElementById("modalBody")
-    .innerHTML=
-
-        <div class="resource">
-        📄 Previous Exam Papers
-        </div>
-
-        <div class="resource">
-        ❓ Practice Questions
-        </div>
-
-        <div class="resource">
-        ✅ Questions & Answers
-        </div>
-
-        <div class="resource">
-        🎬 Video Preparation
-        </div>
-
-        <div class="resource">
-        📚 Books & Short Notes
-        </div>
-
-        <div class="resource">
-        🏆 Practice Tests
-        </div>
-
-    ;
-
-    document.getElementById("modal")
-    .style.display="block";
-}
-[8/22/2026 7:27 PM] Paulos Bunaro: /* =========================================
-   BACK
-========================================= */
-
-function goBack(){
-
-    document.getElementById("learning")
-    .style.display="none";
-
-    document.getElementById("subjects")
-    .scrollIntoView({
-        behavior:"smooth"
-    });
-}
+  </section>
 
 
-/* =========================================
-   CLOSE MODAL
-========================================= */
+  <!-- EXAM -->
+  <section id="exam">
 
-function closeModal(){
+    <div class="exam-box">
 
-    document.getElementById("modal")
-    .style.display="none";
-}
+      <div>
+        <h2>🎯 Prepare. Practice. Pass.</h2>
 
-window.onclick=function(event){
+        <p>
+          Get ready for Regional Exams, Grade 8 examinations,
+          Grade 10 preparation and Grade 12 Entrance Exams
+          using questions, answers, books and video lessons.
+        </p>
+      </div>
 
-    if(event.target===
-       document.getElementById("modal")){
+      <a href="#grades" class="exam-btn">
+        Start Preparation →
+      </a>
 
-        closeModal();
+    </div>
 
-    }
+  </section>
 
-};
 
-</script>
+  <!-- UNIVERSITY -->
+  <section id="university" class="university">
+
+    <div class="section-title">
+      <h2>🎓 University & Future</h2>
+      <p>Prepare today for your university journey.</p>
+    </div>
+
+    <div class="university-card">
+
+      <!-- Replace this image URL with your university photo -->
+      <img
+        class="university-photo"
+        src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80"
+        alt="University Campus">
+
+      <h2>Build Your Future Through Education</h2>
+
+      <p>
+        Study smart, practice regularly and prepare yourself
+        for the next step of your educational journey.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <h2>LearnHub 🇪🇹</h2>
+
+    <p>
+      Learn • Practice • Prepare • Succeed
+    </p>
+
+    <div class="copyright">
+      © 2026 LearnHub Ethiopia. All Rights Reserved.
+    </div>
+
+  </footer>
 
 </body>
 </html>
