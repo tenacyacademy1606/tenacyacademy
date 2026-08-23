@@ -14,7 +14,20 @@
     box-sizing: border-box;
 }
 
-body {
+body {<section class="hero">
+
+  <h1>Welcome to Paul Academy</h1>
+
+  <p>
+    Learn useful skills, discover technology,
+    and build your future with us.
+  </p>
+
+  <a href="#courses" class="hero-button">
+    Start Learning
+  </a>
+
+</section>
     font-family: Arial, sans-serif;
     background: #f4f7fb;
     color: #222;
@@ -150,7 +163,57 @@ footer {
     text-align: center;
     padding: 25px;
 }
+/* Attractive Homepage */
+.hero {
+  min-height: 500px;
+  background:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+    url("images/students.jpg") center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 40px 20px;
+}
 
+.hero h1 {
+  font-size: 50px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 22px;
+  max-width: 700px;
+}
+
+.hero-button {
+  margin-top: 20px;
+  padding: 14px 30px;
+  background: #ff9800;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.hero-button:hover {
+  background: #e68900;
+  transform: scale(1.05);
+}
+
+.video-box {
+  max-width: 800px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+.video-box video {
+  width: 100%;
+  border-radius: 15px;
+}
 </style>
 </head>
 
