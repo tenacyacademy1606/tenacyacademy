@@ -1,802 +1,1427 @@
-[8/22/2026 5:51 PM] Paulos Bunaro: <!DOCTYPE html>
+[8/22/2026 6:40 PM] Paulos Bunaro: <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Paul Academy | KG - 12 Learning Platform</title>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f5f8ff;
-      color: #172033;
-    }
-
-    /* NAVBAR */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      background: rgba(255,255,255,0.96);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    }
-
-    nav {
-      max-width: 1200px;
-      margin: auto;
-      padding: 17px 25px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 25px;
-      font-weight: 800;
-      color: #1455c0;
-    }
-
-    .logo span {
-      color: #ff8b00;
-    }
-
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 28px;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #172033;
-      font-weight: 600;
-    }
-
-    nav a:hover {
-      color: #1455c0;
-    }
-
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      padding: 150px 25px 80px;
-      display: flex;
-      align-items: center;
-
-      background:
-        linear-gradient(120deg, rgba(8,45,105,.94), rgba(20,85,190,.70)),
-        url("https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1800&q=85");
-
-      background-size: cover;
-      background-position: center;
-    }
-
-    .hero-content {
-      max-width: 1200px;
-      width: 100%;
-      margin: auto;
-      color: white;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 9px 16px;
-      background: rgba(255,255,255,.15);
-      border: 1px solid rgba(255,255,255,.3);
-      border-radius: 30px;
-      margin-bottom: 20px;
-      font-weight: bold;
-    }
-
-    .hero h1 {
-      max-width: 800px;
-      font-size: clamp(45px, 7vw, 78px);
-      line-height: 1.05;
-      margin-bottom: 25px;
-    }
-
-    .hero h1 span {
-      color: #ffb238;
-    }
-
-    .hero p {
-      max-width: 680px;
-      font-size: 20px;
-      line-height: 1.7;
-      color: #edf4ff;
-      margin-bottom: 32px;
-    }
-
-    .buttons {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 15px 27px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: .3s;
-    }
-
-    .primary {
-      background: #ff8b00;
-      color: white;
-    }
-
-    .primary:hover {
-      transform: translateY(-4px);
-      background: #e87800;
-    }
-
-    .secondary {
-      background: white;
-      color: #1455c0;
-    }
-
-    .secondary:hover {
-      transform: translateY(-4px);
-    }
-
-    /* QUICK FEATURES */
-    .quick {
-      max-width: 1100px;
-      margin: -55px auto 0;
-      position: relative;
-      z-index: 5;
-      padding: 25px;
-      display: grid;
-      grid-template-columns: repeat(4,1fr);
-      gap: 15px;
-    }
-
-    .quick-card {
-      background: white;
-      padding: 25px 15px;
-      border-radius: 15px;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,.10);
-    }
-
-    .quick-card .emoji {
-      font-size: 30px;
-      margin-bottom: 8px;
-    }
-
-    .quick-card h3 {
-      font-size: 17px;
-    }
-
-    .quick-card p {
-      color: #667085;
-      font-size: 13px;
-      margin-top: 5px;
-    }
-
-    /* SECTIONS */
-    section {
-      padding: 90px 25px;
-    }
-
-    .section-title {
-      max-width: 700px;
-      margin: 0 auto 45px;
-      text-align: center;
-    }
-
-    .section-title h2 {
-      font-size: 40px;
-      margin-bottom: 12px;
-    }
-
-    .section-title p {
-      color: #667085;
-      font-size: 17px;
-    }
-
-    /* GRADES */
-    .grades {
-      max-width: 1100px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(4,1fr);
-      gap: 18px;
-    }
-[8/22/2026 5:51 PM] Paulos Bunaro: .grade {
-      padding: 25px 15px;
-      background: white;
-      border-radius: 15px;
-      text-align: center;
-      text-decoration: none;
-      color: #172033;
-      font-weight: bold;
-      box-shadow: 0 7px 25px rgba(0,0,0,.07);
-      border: 2px solid transparent;
-      transition: .3s;
-    }
-
-    .grade:hover {
-      transform: translateY(-7px);
-      border-color: #1455c0;
-      color: #1455c0;
-    }
-
-    .grade .number {
-      font-size: 30px;
-      margin-bottom: 8px;
-    }
-
-    /* LEARNING FEATURES */
-    .features {
-      background: white;
-    }
-
-    .feature-grid {
-      max-width: 1150px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 25px;
-    }
-
-    .feature-card {
-      padding: 32px 27px;
-      background: #f8faff;
-      border-radius: 18px;
-      border: 1px solid #e7edf8;
-      transition: .3s;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-7px);
-      box-shadow: 0 15px 35px rgba(0,0,0,.09);
-    }
-
-    .feature-icon {
-      width: 60px;
-      height: 60px;
-      border-radius: 15px;
-      background: #eaf2ff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 28px;
-      margin-bottom: 20px;
-    }
-
-    .feature-card h3 {
-      font-size: 21px;
-      margin-bottom: 10px;
-    }
-
-    .feature-card p {
-      color: #667085;
-      line-height: 1.7;
-    }
-
-    /* HOW IT WORKS */
-    .steps {
-      max-width: 1050px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(4,1fr);
-      gap: 20px;
-    }
-
-    .step {
-      text-align: center;
-    }
-
-    .step-number {
-      width: 60px;
-      height: 60px;
-      margin: 0 auto 18px;
-      border-radius: 50%;
-      background: #1455c0;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      font-weight: bold;
-    }
-
-    .step h3 {
-      margin-bottom: 8px;
-    }
-
-    .step p {
-      color: #667085;
-      font-size: 14px;
-    }
-
-    /* CTA */
-    .cta {
-      background: linear-gradient(135deg,#082d69,#1455c0);
-      color: white;
-      text-align: center;
-    }
-
-    .cta h2 {
-      font-size: 43px;
-      margin-bottom: 15px;
-    }
-
-    .cta p {
-      max-width: 650px;
-      margin: 0 auto 30px;
-      color: #e6efff;
-      font-size: 17px;
-    }
-
-    /* FOOTER */
-    footer {
-      background: #101828;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-    }
-
-    footer strong {
-      color: #ff9a18;
-    }
-
-    footer p {
-      color: #98a2b3;
-      margin-top: 8px;
-    }
-
-    /* MOBILE */
-    @media(max-width:850px) {
-
-      nav {
-        padding: 15px 18px;
-      }
-
-      nav ul {
-        gap: 12px;
-      }
-
-      nav ul li a {
-        font-size: 12px;
-      }
-
-      .hero {
-        padding-top: 130px;
-      }
-
-      .hero h1 {
-        font-size: 48px;
-      }
-
-      .hero p {
-        font-size: 17px;
-      }
-
-      .quick {
-        grid-template-columns: repeat(2,1fr);
-        margin-top: -35px;
-      }
-
-      .grades {
-        grid-template-columns: repeat(2,1fr);
-      }
-
-      .feature-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .steps {
-        grid-template-columns: repeat(2,1fr);
-        gap: 35px;
-      }
-    }
-
-    @media(max-width:500px) {
-
-      nav ul {
-        gap: 8px;
-      }
-
-      nav ul li:nth-child(3),
-      nav ul li:nth-child(4) {
-        display: none;
-      }
-
-      .hero h1 {
-        font-size: 42px;
-      }
-
-      .quick {
-        grid-template-columns: 1fr 1fr;
-        padding: 15px;
-      }
-
-      .grades {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .steps {
-        grid-template-columns: 1fr;
-      }
-
-      .section-title h2 {
-        font-size: 32px;
-      }
-
-      .cta h2 {
-        font-size: 32px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Paul Academy | KG - 12 Learning Platform</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f5f8ff;
+  color:#18243a;
+}
+
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
+  background:rgba(255,255,255,.96);
+  box-shadow:0 4px 20px rgba(0,0,0,.08);
+}
+
+nav{
+  max-width:1250px;
+  margin:auto;
+  padding:17px 25px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:25px;
+  font-weight:800;
+  color:#1557c0;
+}
+
+.logo span{
+  color:#ff8b00;
+}
+
+nav ul{
+  display:flex;
+  gap:28px;
+  list-style:none;
+}
+
+nav a{
+  text-decoration:none;
+  color:#18243a;
+  font-weight:600;
+}
+
+nav a:hover{
+  color:#1557c0;
+}
+
+/* HERO */
+
+.hero{
+  min-height:100vh;
+  padding:150px 25px 90px;
+  display:flex;
+  align-items:center;
+  background:
+    linear-gradient(120deg,rgba(5,35,85,.95),rgba(17,83,184,.72)),
+    url("https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1800&q=85");
+  background-size:cover;
+  background-position:center;
+}
+
+.hero-content{
+  max-width:1200px;
+  width:100%;
+  margin:auto;
+  color:white;
+}
+
+.badge{
+  display:inline-block;
+  padding:9px 17px;
+  background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.3);
+  border-radius:30px;
+  margin-bottom:20px;
+  font-weight:bold;
+}
+
+.hero h1{
+  font-size:clamp(45px,7vw,78px);
+  line-height:1.05;
+  max-width:850px;
+  margin-bottom:25px;
+}
+
+.hero h1 span{
+  color:#ffb238;
+}
+
+.hero p{
+  max-width:700px;
+  font-size:20px;
+  line-height:1.7;
+  color:#edf4ff;
+  margin-bottom:32px;
+}
+
+.buttons{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-block;
+  padding:15px 27px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:bold;
+  transition:.3s;
+}
+
+.primary{
+  background:#ff8b00;
+  color:white;
+}
+
+.primary:hover{
+  transform:translateY(-4px);
+  background:#e87800;
+}
+
+.secondary{
+  background:white;
+  color:#1557c0;
+}
+
+.secondary:hover{
+  transform:translateY(-4px);
+}
+
+/* QUICK */
+
+.quick{
+  max-width:1100px;
+  margin:-55px auto 0;
+  position:relative;
+  z-index:5;
+  padding:25px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+
+.quick-card{
+  background:white;
+  padding:25px 15px;
+  border-radius:15px;
+  text-align:center;
+  box-shadow:0 10px 30px rgba(0,0,0,.10);
+}
+
+.quick-card .emoji{
+  font-size:30px;
+  margin-bottom:8px;
+}
+
+.quick-card h3{
+  font-size:17px;
+}
+
+.quick-card p{
+  color:#667085;
+  font-size:13px;
+  margin-top:5px;
+}
+
+/* GENERAL */
+
+section{
+  padding:90px 25px;
+}
+
+.section-title{
+  max-width:750px;
+  margin:0 auto 45px;
+  text-align:center;
+}
+
+.section-title h2{
+  font-size:40px;
+  margin-bottom:12px;
+}
+
+.section-title p{
+  color:#667085;
+  font-size:17px;
+}
+
+/* GRADES */
+
+.grade-grid{
+  max-width:1150px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.grade-card{
+  background:white;
+  border:2px solid transparent;
+  border-radius:18px;
+  padding:25px 15px;
+  text-align:center;
+  cursor:pointer;
+  transition:.3s;
+  box-shadow:0 7px 25px rgba(0,0,0,.07);
+}
+
+.grade-card:hover{
+  transform:translateY(-7px);
+  border-color:#1557c0;
+  box-shadow:0 15px 35px rgba(0,0,0,.12);
+}
+
+.grade-icon{
+  font-size:32px;
+  margin-bottom:10px;
+}
+
+.grade-card h3{
+  color:#1557c0;
+  margin-bottom:5px;
+}
+
+.grade-card p{
+  color:#667085;
+  font-size:13px;
+}
+
+/* DASHBOARD */
+
+#dashboard{
+  display:none;
+  background:white;
+}
+
+.dashboard-box{
+  max-width:1200px;
+  margin:auto;
+}
+
+.back-btn{
+  border:none;
+  background:#edf4ff;
+  color:#1557c0;
+  padding:11px 18px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:bold;
+  margin-bottom:25px;
+}
+
+.grade-heading{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+  margin-bottom:30px;
+}
+
+.grade-heading h2{
+  font-size:35px;
+}
+[8/22/2026 6:40 PM] Paulos Bunaro: .exam-badge{
+  background:#fff1df;
+  color:#d96d00;
+  padding:12px 17px;
+  border-radius:10px;
+  font-weight:bold;
+}
+
+/* SUBJECTS */
+
+.subject-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.subject-card{
+  background:#f8faff;
+  border:1px solid #e4ebf7;
+  border-radius:16px;
+  padding:25px;
+  transition:.3s;
+}
+
+.subject-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+
+.subject-number{
+  width:45px;
+  height:45px;
+  border-radius:12px;
+  background:#e8f0ff;
+  color:#1557c0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+  margin-bottom:15px;
+}
+
+.subject-card h3{
+  margin-bottom:8px;
+}
+
+.subject-card p{
+  color:#667085;
+  font-size:14px;
+  margin-bottom:18px;
+}
+
+.resource-buttons{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+
+.resource{
+  border:none;
+  padding:10px 7px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:bold;
+  font-size:12px;
+  background:white;
+  border:1px solid #dce5f3;
+  color:#1557c0;
+  transition:.2s;
+}
+
+.resource:hover{
+  background:#1557c0;
+  color:white;
+}
+
+/* SPECIAL EXAM */
+
+.exam-section{
+  margin-top:35px;
+  padding:25px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#fff7e9,#fff);
+  border:1px solid #ffe0ad;
+}
+
+.exam-section h3{
+  color:#d96d00;
+  margin-bottom:8px;
+}
+
+.exam-section p{
+  color:#667085;
+  margin-bottom:15px;
+}
+
+/* MODAL */
+
+.modal{
+  display:none;
+  position:fixed;
+  z-index:2000;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background:rgba(5,20,45,.75);
+  padding:30px;
+}
+
+.modal-content{
+  background:white;
+  max-width:650px;
+  margin:70px auto;
+  border-radius:20px;
+  padding:30px;
+  position:relative;
+  max-height:80vh;
+  overflow:auto;
+}
+
+.close{
+  position:absolute;
+  right:20px;
+  top:15px;
+  font-size:28px;
+  cursor:pointer;
+  color:#667085;
+}
+
+.modal-content h2{
+  color:#1557c0;
+  margin-bottom:15px;
+}
+
+.modal-content p{
+  color:#667085;
+  line-height:1.7;
+  margin-bottom:15px;
+}
+
+.fake-list{
+  display:grid;
+  gap:10px;
+}
+
+.fake-item{
+  padding:14px;
+  background:#f5f8ff;
+  border-radius:10px;
+  border-left:4px solid #1557c0;
+}
+
+/* FEATURES */
+
+.features{
+  background:#fff;
+}
+
+.feature-grid{
+  max-width:1150px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+}
+
+.feature-card{
+  padding:32px 27px;
+  background:#f8faff;
+  border-radius:18px;
+  border:1px solid #e7edf8;
+  transition:.3s;
+}
+
+.feature-card:hover{
+  transform:translateY(-7px);
+  box-shadow:0 15px 35px rgba(0,0,0,.09);
+}
+
+.feature-icon{
+  width:60px;
+  height:60px;
+  border-radius:15px;
+  background:#eaf2ff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  margin-bottom:20px;
+}
+
+.feature-card h3{
+  font-size:21px;
+  margin-bottom:10px;
+}
+
+.feature-card p{
+  color:#667085;
+  line-height:1.7;
+}
+
+/* FLOW */
+
+.steps{
+  max-width:1050px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:18px;
+}
+
+.step{
+  text-align:center;
+}
+
+.step-number{
+  width:58px;
+  height:58px;
+  margin:0 auto 18px;
+  border-radius:50%;
+  background:#1557c0;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+  font-size:21px;
+}
+
+.step h3{
+  margin-bottom:7px;
+}
+
+.step p{
+  color:#667085;
+  font-size:13px;
+}
+
+/* CTA */
+
+.cta{
+  background:linear-gradient(135deg,#082d69,#1557c0);
+  color:white;
+  text-align:center;
+}
+
+.cta h2{
+  font-size:43px;
+  margin-bottom:15px;
+}
+
+.cta p{
+  max-width:650px;
+  margin:0 auto 30px;
+  color:#e6efff;
+}
+
+/* FOOTER */
+
+footer{
+  background:#101828;
+  color:white;
+  text-align:center;
+  padding:30px 20px;
+}
+
+footer strong{
+  color:#ff9a18;
+}
+
+footer p{
+  color:#98a2b3;
+  margin-top:8px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .quick{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .grade-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .subject-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .feature-grid{
+    grid-template-columns:1fr;
+  }
+
+  .steps{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+[8/22/2026 6:40 PM] Paulos Bunaro: @media(max-width:600px){
+
+  nav ul{
+    gap:10px;
+  }
+
+  nav ul li:nth-child(3),
+  nav ul li:nth-child(4){
+    display:none;
+  }
+
+  .hero{
+    padding-top:130px;
+  }
+
+  .hero h1{
+    font-size:43px;
+  }
+
+  .hero p{
+    font-size:17px;
+  }
+
+  .quick{
+    grid-template-columns:1fr 1fr;
+    padding:15px;
+  }
+
+  .grade-grid,
+  .subject-grid{
+    grid-template-columns:1fr;
+  }
+
+  .steps{
+    grid-template-columns:1fr;
+  }
+
+  .section-title h2{
+    font-size:32px;
+  }
+
+  .cta h2{
+    font-size:32px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- NAVIGATION -->
-  <header>
-    <nav>
+<header>
+<nav>
+  <div class="logo">Paul <span>Academy</span></div>
 
-      <div class="logo">
-        Paul <span>Academy</span>
-      </div>
-[8/22/2026 5:51 PM] Paulos Bunaro: <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#grades">Grades</a></li>
-        <li><a href="#learning">Learning</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-
-    </nav>
-  </header>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#grades">Grades</a></li>
+    <li><a href="#learning">Learning</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+</header>
 
 
-  <!-- HERO -->
-  <section class="hero" id="home">
+<!-- HERO -->
 
-    <div class="hero-content">
+<section class="hero" id="home">
+<div class="hero-content">
 
-      <div class="badge">
-        🎓 KG – Grade 12 Online Learning
-      </div>
+  <div class="badge">🎓 KG – Grade 12 Online Learning</div>
 
-      <h1>
-        Learn Today.<br>
-        <span>Build Your Future.</span>
-      </h1>
+  <h1>
+    Learn Smarter.<br>
+    <span>Build Your Future.</span>
+  </h1>
 
-      <p>
-        Welcome to Paul Academy — learn every subject through
-        video lessons, textbooks, notes, practice questions and
-        exams, all in one place.
-      </p>
+  <p>
+    Study your subjects through video lessons, textbooks,
+    notes, questions, answers and exams — organized grade
+    by grade and subject by subject.
+  </p>
 
-      <div class="buttons">
-
-        <a href="#grades" class="btn primary">
-          🚀 Start Learning
-        </a>
-
-        <a href="#learning" class="btn secondary">
-          Explore Platform
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- QUICK FEATURES -->
-  <div class="quick">
-
-    <div class="quick-card">
-      <div class="emoji">🎬</div>
-      <h3>Video Lessons</h3>
-      <p>Learn lesson by lesson</p>
-    </div>
-
-    <div class="quick-card">
-      <div class="emoji">📚</div>
-      <h3>Books & Notes</h3>
-      <p>Study materials</p>
-    </div>
-
-    <div class="quick-card">
-      <div class="emoji">📝</div>
-      <h3>Practice</h3>
-      <p>Test your knowledge</p>
-    </div>
-
-    <div class="quick-card">
-      <div class="emoji">🏆</div>
-      <h3>Track Progress</h3>
-      <p>Complete your courses</p>
-    </div>
-
+  <div class="buttons">
+    <a href="#grades" class="btn primary">🚀 Start Learning</a>
+    <a href="#learning" class="btn secondary">Explore Platform</a>
   </div>
 
+</div>
+</section>
 
-  <!-- GRADES -->
-  <section id="grades">
 
-    <div class="section-title">
+<!-- QUICK FEATURES -->
 
-      <h2>Choose Your Grade</h2>
+<div class="quick">
 
-      <p>
-        Select your grade and start learning your subjects
-        with lessons, videos, books and practice exams.
-      </p>
+<div class="quick-card">
+<div class="emoji">🎬</div>
+<h3>Video Lessons</h3>
+<p>Lesson by lesson learning</p>
+</div>
 
-    </div>
+<div class="quick-card">
+<div class="emoji">📚</div>
+<h3>Books & Notes</h3>
+<p>Organized study materials</p>
+</div>
 
-    <div class="grades">
+<div class="quick-card">
+<div class="emoji">📝</div>
+<h3>Questions & Exams</h3>
+<p>Practice and prepare</p>
+</div>
 
-      <a href="#" class="grade">
-        <div class="number">🎒</div>
-        KG
-      </a>
+<div class="quick-card">
+<div class="emoji">🏆</div>
+<h3>Track Progress</h3>
+<p>Complete your courses</p>
+</div>
 
-      <a href="#" class="grade">
-        <div class="number">1</div>
-        Grade 1
-      </a>
+</div>
 
-      <a href="#" class="grade">
-        <div class="number">2</div>
-        Grade 2
-      </a>
 
-      <a href="#" class="grade">
-        <div class="number">3</div>
-        Grade 3
-      </a>
+<!-- GRADES -->
 
-      <a href="#" class="grade">
-        <div class="number">4</div>
-        Grade 4
-      </a>
+<section id="grades">
 
-      <a href="#" class="grade">
-        <div class="number">5</div>
-        Grade 5
-      </a>
+<div class="section-title">
+<h2>Choose Your Grade</h2>
+<p>
+Choose your grade to see its subjects, lessons,
+videos, books, questions and examinations.
+</p>
+</div>
 
-      <a href="#" class="grade">
-        <div class="number">6</div>
-        Grade 6
-      </a>
+<div class="grade-grid" id="gradeGrid"></div>
 
-      <a href="#" class="grade">
-        <div class="number">7</div>
-        Grade 7
-      </a>
+</section>
 
-      <a href="#" class="grade">
-        <div class="number">8</div>
-        Grade 8
-      </a>
 
-      <a href="#" class="grade">
-        <div class="number">9</div>
-        Grade 9
-      </a>
+<!-- DASHBOARD -->
 
-      <a href="#" class="grade">
-        <div class="number">10</div>
-        Grade 10
-      </a>
+<section id="dashboard">
 
-      <a href="#" class="grade">
-        <div class="number">11</div>
-        Grade 11
-      </a>
+<div class="dashboard-box">
 
-      <a href="#" class="grade">
-        <div class="number">12</div>
-        Grade 12
-      </a>
+<button class="back-btn" onclick="backToGrades()">
+← Back to Grades
+</button>
 
-    </div>
+<div class="grade-heading">
 
-  </section>
+<div>
+<h2 id="selectedGrade"></h2>
+<p id="gradeDescription"></p>
+</div>
 
+<div id="examBadge"></div>
 
-  <!-- LEARNING FEATURES -->
-  <section class="features" id="learning">
+</div>
 
-    <div class="section-title">
+<div class="subject-grid" id="subjectGrid"></div>
 
-      <h2>Everything You Need to Learn</h2>
+<div id="specialExam"></div>
 
-      <p>
-        One platform for lessons, books, videos,
-        practice and exams.
-      </p>
+</div>
 
-    </div>
+</section>
 
-    <div class="feature-grid">
 
-      <div class="feature-card">
+<!-- LEARNING FEATURES -->
 
-        <div class="feature-icon">🎬</div>
+<section class="features" id="learning">
 
-        <h3>Lesson Videos</h3>
+<div class="section-title">
+<h2>Everything in One Place</h2>
 
-        <p>
-          Watch clear lesson videos for every subject
-          and learn step by step at your own pace.
-        </p>
+<p>
+Your complete learning journey from lesson
+to examination.
+</p>
+</div>
 
-      </div>
+<div class="feature-grid">
 
+<div class="feature-card">
+<div class="feature-icon">🎬</div>
+<h3>Video Learning</h3>
+<p>
+Watch lessons subject by subject and learn
+at your own pace.
+</p>
+</div>
+
+<div class="feature-card">
+<div class="feature-icon">📖</div>
+<h3>Textbooks & Notes</h3>
+<p>
+Study textbooks, short notes and other
+learning materials.
+</p>
+</div>
+
+<div class="feature-card">
+<div class="feature-icon">❓</div>
+<h3>Questions & Answers</h3>
+<p>
+Practice questions and check their answers
+to improve your understanding.
+</p>
+</div>
+
+<div class="feature-card">
+<div class="feature-icon">📝</div>
+<h3>Examinations</h3>
+<p>
+Prepare for school, regional and national
+examinations.
+</p>
+</div>
+
+<div class="feature-card">
+<div class="feature-icon">🎯</div>
+<h3>Exam Preparation</h3>
+<p>
+Review important questions and answers
+before taking an examination.
+</p>
+</div>
 
-      <div class="feature-card">
+<div class="feature-card">
+<div class="feature-icon">🏆</div>
+<h3>Course Completion</h3>
+<p>
+Finish every lesson and subject and track
+your learning progress.
+</p>
+</div>
 
-        <div class="feature-icon">📖</div>
+</div>
 
-        <h3>Textbooks & Notes</h3>
+</section>
 
-        <p>
-          Access useful textbooks, notes and learning
-          materials for your grade and subjects.
-        </p>
 
-      </div>
+<!-- LEARNING FLOW -->
 
+<section>
 
-      <div class="feature-card">
+<div class="section-title">
+<h2>How Your Learning Works</h2>
+<p>Everything is organized step by step.</p>
+</div>
 
-        <div class="feature-icon">📝</div>
+<div class="steps">
 
-        <h3>Practice Questions</h3>
-[8/22/2026 5:51 PM] Paulos Bunaro: <p>
-          Practice what you learn and check your answers
-          to improve your understanding.
-        </p>
+<div class="step">
+<div class="step-number">1</div>
+<h3>Choose Grade</h3>
+<p>KG to Grade 12</p>
+</div>
+[8/22/2026 6:40 PM] Paulos Bunaro: <div class="step">
+<div class="step-number">2</div>
+<h3>Choose Subject</h3>
+<p>Select your subject</p>
+</div>
 
-      </div>
+<div class="step">
+<div class="step-number">3</div>
+<h3>Watch Video</h3>
+<p>Learn each lesson</p>
+</div>
 
+<div class="step">
+<div class="step-number">4</div>
+<h3>Read & Practice</h3>
+<p>Book, notes and questions</p>
+</div>
+
+<div class="step">
+<div class="step-number">5</div>
+<h3>Take Exam</h3>
+<p>Check your result</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta" id="contact">
+
+<h2>Start Learning Today 🚀</h2>
+
+<p>
+Choose your grade, select your subject and
+begin your learning journey with Paul Academy.
+</p>
+
+<a href="#grades" class="btn primary">
+Choose My Grade
+</a>
+
+</section>
+
+
+<footer>
+
+<h3>Paul <strong>Academy</strong></h3>
+
+<p>
+KG – Grade 12 Online Learning Platform
+</p>
+
+<p>
+© 2026 Paul Academy. All Rights Reserved.
+</p>
+
+</footer>
+
+
+<!-- MODAL -->
+
+<div class="modal" id="modal">
+
+<div class="modal-content">
+
+<span class="close" onclick="closeModal()">×</span>
+
+<h2 id="modalTitle"></h2>
+
+<div id="modalBody"></div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =========================================
+   PAUL ACADEMY GRADE & SUBJECT DATABASE
+========================================= */
+
+const academy = {
+
+"KG":{
+description:"Early learning and foundational education.",
+subjects:[
+"Amharic",
+"English",
+"Mathematics",
+"Environmental Science"
+],
+exam:null
+},
+
+"Grade 1":{
+description:"Grade 1 learning materials and lessons.",
+subjects:[
+"Amharic",
+"English",
+"Mathematics",
+"Environmental Science",
+"Moral Education",
+"Health & Physical Education",
+"Information & Communication Technology"
+],
+exam:null
+},
+
+"Grade 2":{
+description:"Grade 2 learning materials and lessons.",
+subjects:[
+"Amharic",
+"English",
+"Mathematics",
+"Environmental Science",
+"Moral Education",
+"Health & Physical Education",
+"Information & Communication Technology"
+],
+exam:null
+},
+
+"Grade 3":{
+description:"Grade 3 learning materials and lessons.",
+subjects:[
+"Amharic",
+"English",
+"Mathematics",
+"Environmental Science",
+"Moral Education",
+"Health & Physical Education",
+"Information & Communication Technology"
+],
+exam:null
+},
+
+"Grade 4":{
+description:"Grade 4 learning materials and lessons.",
+subjects:[
+"Amharic",
+"English",
+"Mathematics",
+"Environmental Science",
+"Moral Education",
+"Health & Physical Education",
+"Information & Communication Technology"
+],
+exam:null
+},
+
+"Grade 5":{
+description:"Grade 5 learning materials and lessons.",
+subjects:[
+"Amharic",
+"English",
+"Mathematics",
+"Environmental Science",
+"Moral Education",
+"Health & Physical Education",
+"Information & Communication Technology"
+],
+exam:null
+},
+
+"Grade 6":{
+description:"Grade 6 subjects, lessons and Regional Examination preparation.",
+subjects:[
+"Amharic",
+"English",
+"Mathematics",
+"Environmental Science",
+"Moral Education",
+"Health & Physical Education",
+"Information & Communication Technology"
+],
+exam:"Grade 6 Regional Examination"
+},
+
+"Grade 7":{
+description:"Grade 7 complete subject learning.",
+subjects:[
+"Amharic",
+"English",
+"Mathematics",
+"General Science",
+"Social Studies",
+"Citizenship",
+"Information Technology",
+"Performing & Visual Art",
+"Health & Physical Education"
+],
+exam:null
+},
+
+"Grade 8":{
+description:"Grade 8 complete learning and Regional Examination preparation.",
+subjects:[
+"Amharic",
+"English",
+"Mathematics",
+"General Science",
+"Social Science",
+"Citizenship",
+"Information Technology",
+"Performing & Visual Art",
+"Health & Physical Education"
+],
+exam:"Grade 8 Regional Examination"
+},
+
+"Grade 9":{
+description:"Grade 9 secondary school learning.",
+subjects:[
+"English",
+"Mathematics",
+"Physics",
+"Chemistry",
+"Biology",
+"Geography",
+"History",
+"Citizenship",
+"Economics",
+"Information Technology",
+"Health & Physical Education",
+"Performing & Visual Art"
+],
+exam:null
+},
+[8/22/2026 6:40 PM] Paulos Bunaro: "Grade 10":{
+description:"Grade 10 complete secondary school learning.",
+subjects:[
+"English",
+"Mathematics",
+"Physics",
+"Chemistry",
+"Biology",
+"Geography",
+"History",
+"Citizenship",
+"Economics",
+"Information Technology",
+"Health & Physical Education",
+"Performing & Visual Art"
+],
+exam:null
+},
+
+"Grade 11":{
+description:"Grade 11 preparatory learning.",
+subjects:[
+"English",
+"Mathematics",
+"Biology",
+"Chemistry",
+"Physics",
+"Information Technology",
+"Scholastic Aptitude",
+"History",
+"Agriculture"
+],
+exam:null
+},
+
+"Grade 12":{
+description:"Grade 12 preparatory learning and entrance examination preparation.",
+subjects:[
+"English",
+"Mathematics",
+"Biology",
+"Chemistry",
+"Physics",
+"Information Technology",
+"Scholastic Aptitude",
+"History",
+"Agriculture"
+],
+exam:"Grade 12 Entrance Examination"
+}
+
+};
+
+
+/* =========================================
+   CREATE GRADE CARDS
+========================================= */
+
+const gradeGrid=document.getElementById("gradeGrid");
+
+Object.keys(academy).forEach((grade,index)=>{
+
+const card=document.createElement("div");
+
+card.className="grade-card";
+
+card.onclick=()=>openGrade(grade);
+
+card.innerHTML=
+
+<div class="grade-icon">
+${index===0 ? "🎒" : "🎓"}
+</div>
+
+<h3>${grade}</h3>
+
+<p>
+${academy[grade].subjects.length} Subjects
+</p>
+
+;
+
+gradeGrid.appendChild(card);
+
+});
+
+
+/* =========================================
+   OPEN GRADE
+========================================= */
+
+function openGrade(grade){
+
+const data=academy[grade];
+
+document.getElementById("grades").style.display="none";
+
+document.getElementById("dashboard").style.display="block";
+
+document.getElementById("selectedGrade").innerText=grade;
+
+document.getElementById("gradeDescription").innerText=data.description;
+
+const badge=document.getElementById("examBadge");
+
+if(data.exam){
+
+badge.innerHTML=
+<div class="exam-badge">
+🎯 ${data.exam}
+</div>
+;
+
+}else{
+
+badge.innerHTML="";
+
+}
+
+const subjectGrid=document.getElementById("subjectGrid");
+
+subjectGrid.innerHTML="";
+
+data.subjects.forEach((subject,index)=>{
+
+const card=document.createElement("div");
+
+card.className="subject-card";
+
+card.innerHTML=
+
+<div class="subject-number">
+${index+1}
+</div>
+
+<h3>${subject}</h3>
+
+<p>
+Learn ${subject} through lessons,
+videos, books and practice questions.
+</p>
+
+<div class="resource-buttons">
+
+<button class="resource"
+onclick="openResource('${grade}','${subject}','video')">
+🎬 Video
+</button>
+
+<button class="resource"
+onclick="openResource('${grade}','${subject}','book')">
+📖 Book
+</button>
+
+<button class="resource"
+onclick="openResource('${grade}','${subject}','question')">
+❓ Questions
+</button>
+
+<button class="resource"
+onclick="openResource('${grade}','${subject}','answer')">
+✅ Answers
+</button>
+
+</div>
+;
+
+subjectGrid.appendChild(card);
+
+});
+
+
+/* SPECIAL EXAM */
+
+const special=document.getElementById("specialExam");
+
+if(data.exam){
+
+special.innerHTML=
+
+<div class="exam-section">
+
+<h3>🎯 ${data.exam}</h3>
+
+<p>
+Practice previous questions, review answers,
+watch preparation videos and test yourself
+before the examination.
+</p>
+
+<button class="btn primary"
+onclick="openResource('${grade}','${data.exam}','exam')">
+Open Examination Preparation
+</button>
+
+</div>
+
+;
+
+}else{
+
+special.innerHTML="";
+
+}
+
+window.scrollTo({
+top:document.getElementById("dashboard").offsetTop-80,
+behavior:"smooth"
+});
+
+}
+
+
+/* =========================================
+   BACK TO GRADES
+========================================= */
+
+function backToGrades(){
+
+document.getElementById("dashboard").style.display="none";
+
+document.getElementById("grades").style.display="block";
+
+window.scrollTo({
+top:document.getElementById("grades").offsetTop-80,
+behavior:"smooth"
+});
+
+}
+
+
+/* =========================================
+   RESOURCES
+========================================= */
+
+function openResource(grade,subject,type){
 
-      <div class="feature-card">
+const modal=document.getElementById("modal");
 
-        <div class="feature-icon">🎯</div>
+const title=document.getElementById("modalTitle");
 
-        <h3>Exams & Tests</h3>
+const body=document.getElementById("modalBody");
 
-        <p>
-          Prepare for school exams and important
-          national examinations with practice tests.
-        </p>
+let icon="📚";
 
-      </div>
+let heading="Learning Material";
 
+if(type==="video"){
+icon="🎬";
+heading="Video Lessons";
+}
+[8/22/2026 6:40 PM] Paulos Bunaro: if(type==="book"){
+icon="📖";
+heading="Textbook & Notes";
+}
 
-      <div class="feature-card">
+if(type==="question"){
+icon="❓";
+heading="Practice Questions";
+}
 
-        <div class="feature-icon">❓</div>
+if(type==="answer"){
+icon="✅";
+heading="Questions & Answers";
+}
 
-        <h3>Question & Answer</h3>
+if(type==="exam"){
+icon="🎯";
+heading="Examination Preparation";
+}
 
-        <p>
-          Ask questions about your lessons and find
-          helpful answers for your studies.
-        </p>
+title.innerText=
+icon+" "+grade+" • "+subject;
 
-      </div>
+body.innerHTML=
 
+<h3 style="margin-bottom:15px;">
+${heading}
+</h3>
 
-      <div class="feature-card">
+<div class="fake-list">
 
-        <div class="feature-icon">🏆</div>
+<div class="fake-item">
+📘 ${subject} — Lesson 1
+</div>
 
-        <h3>Course Completion</h3>
+<div class="fake-item">
+📘 ${subject} — Lesson 2
+</div>
 
-        <p>
-          Follow your progress and celebrate when
-          you successfully complete a course.
-        </p>
+<div class="fake-item">
+🎬 ${subject} — Lesson Video
+</div>
 
-      </div>
+<div class="fake-item">
+📖 ${subject} — Textbook / Short Note
+</div>
 
-    </div>
+<div class="fake-item">
+❓ ${subject} — Practice Questions
+</div>
 
-  </section>
+<div class="fake-item">
+✅ ${subject} — Answers & Explanation
+</div>
 
+<div class="fake-item">
+🎯 ${subject} — Practice Test
+</div>
 
-  <!-- HOW IT WORKS -->
-  <section>
+</div>
 
-    <div class="section-title">
+<p style="margin-top:20px;">
+The actual video, textbook, question and answer
+files can be connected here as you upload them.
+</p>
 
-      <h2>How Learning Works</h2>
+;
 
-      <p>
-        Your learning journey is simple.
-      </p>
+modal.style.display="block";
 
-    </div>
+}
 
-    <div class="steps">
 
-      <div class="step">
-        <div class="step-number">1</div>
-        <h3>Choose Grade</h3>
-        <p>Select KG or your grade from 1–12.</p>
-      </div>
+/* =========================================
+   CLOSE MODAL
+========================================= */
 
-      <div class="step">
-        <div class="step-number">2</div>
-        <h3>Choose Subject</h3>
-        <p>Select the subject you want to study.</p>
-      </div>
+function closeModal(){
 
-      <div class="step">
-        <div class="step-number">3</div>
-        <h3>Learn & Practice</h3>
-        <p>Watch videos, read books and practice.</p>
-      </div>
+document.getElementById("modal").style.display="none";
 
-      <div class="step">
-        <div class="step-number">4</div>
-        <h3>Pass & Complete</h3>
-        <p>Take exams and complete your course.</p>
-      </div>
+}
 
-    </div>
+window.onclick=function(event){
 
-  </section>
+const modal=document.getElementById("modal");
 
+if(event.target===modal){
 
-  <!-- CALL TO ACTION -->
-  <section class="cta" id="contact">
+closeModal();
 
-    <h2>Start Your Learning Journey 🚀</h2>
+}
 
-    <p>
-      Choose your grade, select your subject,
-      learn from lessons and prepare for your future.
-    </p>
+};
 
-    <a href="#grades" class="btn primary">
-      Choose My Grade
-    </a>
-
-  </section>
-
-
-  <!-- FOOTER -->
-  <footer>
-
-    <h3>
-      Paul <strong>Academy</strong>
-    </h3>
-
-    <p>
-      KG – Grade 12 Online Learning Platform
-    </p>
-
-    <p>
-      © 2026 Paul Academy. All Rights Reserved.
-    </p>
-
-  </footer>
+</script>
 
 </body>
 </html>
