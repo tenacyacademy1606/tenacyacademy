@@ -1,477 +1,583 @@
-[8/22/2026 7:39 PM] Paulos Bunaro: <!DOCTYPE html>
+[8/22/2026 8:10 PM] Paulos Bunaro: <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>LearnHub Ethiopia | Learn • Practice • Succeed</title>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
-
-    body {
-      background: #f5f8ff;
-      color: #172033;
-    }
-
-    /* NAVBAR */
-    nav {
-      width: 100%;
-      padding: 18px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: white;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 3px 15px rgba(0,0,0,0.08);
-    }
-
-    .logo {
-      font-size: 25px;
-      font-weight: bold;
-      color: #2563eb;
-    }
-
-    .logo span {
-      color: #f59e0b;
-    }
-
-    nav ul {
-      display: flex;
-      gap: 25px;
-      list-style: none;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: #172033;
-      font-weight: 600;
-      transition: .3s;
-    }
-
-    nav ul li a:hover {
-      color: #2563eb;
-    }
-
-    .nav-btn {
-      background: #2563eb;
-      color: white !important;
-      padding: 11px 20px;
-      border-radius: 25px;
-    }
-
-    /* HERO */
-    .hero {
-      min-height: 650px;
-      padding: 80px 7%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 40px;
-      background:
-        linear-gradient(135deg, #eaf2ff, #ffffff);
-    }
-
-    .hero-text {
-      width: 52%;
-    }
-
-    .hero-text small {
-      display: inline-block;
-      background: #dbeafe;
-      color: #2563eb;
-      padding: 9px 17px;
-      border-radius: 30px;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
-
-    .hero-text h1 {
-      font-size: 55px;
-      line-height: 1.1;
-      margin-bottom: 20px;
-    }
-
-    .hero-text h1 span {
-      color: #2563eb;
-    }
-
-    .hero-text p {
-      font-size: 18px;
-      line-height: 1.7;
-      color: #64748b;
-      max-width: 600px;
-      margin-bottom: 30px;
-    }
-
-    .buttons {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .primary-btn,
-    .secondary-btn {
-      padding: 15px 27px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: .3s;
-    }
-
-    .primary-btn {
-      background: #2563eb;
-      color: white;
-      box-shadow: 0 10px 25px rgba(37,99,235,.25);
-    }
-
-    .secondary-btn {
-      background: white;
-      color: #2563eb;
-      border: 2px solid #2563eb;
-    }
-
-    .primary-btn:hover,
-    .secondary-btn:hover {
-      transform: translateY(-4px);
-    }
-
-    /* HERO CARD */
-    .hero-card {
-      width: 400px;
-      height: 430px;
-      border-radius: 35px;
-      padding: 30px;
-      background: linear-gradient(145deg, #2563eb, #7c3aed);
-      box-shadow: 0 25px 60px rgba(37,99,235,.25);
-      color: white;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-card h2 {
-      font-size: 30px;
-      margin-bottom: 15px;
-    }
-
-    .hero-card p {
-      line-height: 1.6;
-      opacity: .9;
-    }
-
-    .student-icon {
-      font-size: 120px;
-      text-align: center;
-      margin: 30px 0;
-    }
-
-    .floating {
-      position: absolute;
-      background: white;
-      color: #172033;
-      padding: 14px 20px;
-      border-radius: 15px;
-      font-weight: bold;
-      box-shadow: 0 10px 30px rgba(0,0,0,.15);
-    }
-
-    .float1 {
-      top: 40px;
-      right: -10px;
-    }
-
-    .float2 {
-      bottom: 40px;
-      left: -10px;
-    }
-
-    /* SECTION */
-    section {
-      padding: 80px 7%;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 45px;
-    }
-
-    .section-title h2 {
-      font-size: 38px;
-      margin-bottom: 12px;
-    }
-
-    .section-title p {
-      color: #64748b;
-      font-size: 17px;
-    }
-
-    /* GRADES */
-    .grades {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 20px;
-    }
-[8/22/2026 7:39 PM] Paulos Bunaro: .grade {
-      background: white;
-      padding: 28px 20px;
-      border-radius: 20px;
-      text-align: center;
-      box-shadow: 0 8px 25px rgba(0,0,0,.06);
-      transition: .3s;
-      border: 1px solid #edf2f7;
-    }
-
-    .grade:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 15px 35px rgba(37,99,235,.15);
-    }
-
-    .grade-icon {
-      font-size: 40px;
-      margin-bottom: 15px;
-    }
-
-    .grade h3 {
-      margin-bottom: 8px;
-    }
-
-    .grade p {
-      color: #64748b;
-      font-size: 14px;
-    }
-
-    /* RESOURCES */
-    .resources {
-      background: #eef4ff;
-    }
-
-    .resource-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 22px;
-    }
-
-    .resource {
-      background: white;
-      padding: 30px;
-      border-radius: 22px;
-      transition: .3s;
-    }
-
-    .resource:hover {
-      transform: translateY(-7px);
-    }
-
-    .resource .icon {
-      font-size: 42px;
-      margin-bottom: 18px;
-    }
-
-    .resource h3 {
-      margin-bottom: 10px;
-    }
-
-    .resource p {
-      color: #64748b;
-      line-height: 1.6;
-    }
-
-    /* EXAM */
-    .exam-box {
-      background: linear-gradient(135deg, #172554, #2563eb);
-      color: white;
-      padding: 55px;
-      border-radius: 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 30px;
-    }
-
-    .exam-box h2 {
-      font-size: 35px;
-      margin-bottom: 15px;
-    }
-
-    .exam-box p {
-      opacity: .9;
-      line-height: 1.7;
-      max-width: 650px;
-    }
-
-    .exam-btn {
-      background: white;
-      color: #2563eb;
-      padding: 15px 25px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-      white-space: nowrap;
-    }
-
-    /* UNIVERSITY */
-    .university {
-      text-align: center;
-    }
-
-    .university-card {
-      background: white;
-      padding: 35px;
-      border-radius: 30px;
-      box-shadow: 0 15px 40px rgba(0,0,0,.08);
-    }
-
-    .university-photo {
-      width: 100%;
-      max-height: 350px;
-      object-fit: cover;
-      border-radius: 22px;
-      margin-bottom: 25px;
-    }
-
-    .university-card h2 {
-      margin-bottom: 12px;
-    }
-
-    .university-card p {
-      color: #64748b;
-      line-height: 1.7;
-    }
-
-    /* FOOTER */
-    footer {
-      background: #0f172a;
-      color: white;
-      padding: 55px 7% 25px;
-      text-align: center;
-    }
-
-    footer h2 {
-      margin-bottom: 15px;
-    }
-
-    footer p {
-      color: #94a3b8;
-      margin-bottom: 25px;
-    }
-
-    .copyright {
-      border-top: 1px solid #334155;
-      padding-top: 20px;
-      color: #94a3b8;
-      font-size: 14px;
-    }
-
-    /* MOBILE */
-    @media(max-width: 800px) {
-
-      nav ul {
-        display: none;
-      }
-
-      .hero {
-        flex-direction: column;
-        text-align: center;
-        padding-top: 60px;
-      }
-
-      .hero-text {
-        width: 100%;
-      }
-
-      .hero-text h1 {
-        font-size: 40px;
-      }
-
-      .buttons {
-        justify-content: center;
-      }
-
-      .hero-card {
-        width: 100%;
-        max-width: 400px;
-      }
-
-      .exam-box {
-        flex-direction: column;
-        text-align: center;
-        padding: 35px 25px;
-      }
-    }
-  </style>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Paul Academy | Learn • Practice • Succeed</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#f5f8ff;
+  color:#172033;
+}
+
+/* ================= NAVBAR ================= */
+
+nav{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:18px 7%;
+
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(12px);
+
+  box-shadow:0 4px 20px rgba(0,0,0,.08);
+}
+
+.logo{
+  font-size:25px;
+  font-weight:900;
+  color:#2563eb;
+}
+
+.logo span{
+  color:#f59e0b;
+}
+
+nav ul{
+  display:flex;
+  gap:24px;
+  list-style:none;
+  align-items:center;
+}
+
+nav a{
+  text-decoration:none;
+  color:#172033;
+  font-weight:700;
+}
+
+nav a:hover{
+  color:#2563eb;
+}
+
+.nav-btn{
+  background:#2563eb;
+  color:white!important;
+  padding:11px 20px;
+  border-radius:25px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  position:relative;
+  min-height:100vh;
+  padding-top:75px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  overflow:hidden;
+
+  background:
+  linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+}
+
+.hero-content{
+  width:90%;
+  max-width:1200px;
+
+  display:grid;
+  grid-template-columns:1fr 1fr;
+
+  gap:55px;
+  align-items:center;
+}
+
+/* HERO TEXT */
+
+.hero-text{
+  color:white;
+}
+
+.badge{
+  display:inline-block;
+
+  padding:10px 18px;
+  margin-bottom:20px;
+
+  border-radius:30px;
+
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.3);
+
+  font-size:14px;
+  font-weight:800;
+  letter-spacing:1px;
+}
+
+.hero-text h1{
+  font-size:clamp(45px,6vw,75px);
+  line-height:1.05;
+
+  margin-bottom:20px;
+
+  font-weight:900;
+}
+
+.hero-text h1 span{
+  color:#fbbf24;
+}
+
+.hero-text p{
+  max-width:600px;
+
+  color:#dbeafe;
+
+  font-size:18px;
+  line-height:1.8;
+
+  margin-bottom:30px;
+}
+
+.buttons{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:15px 27px;
+  border-radius:30px;
+
+  text-decoration:none;
+  font-weight:800;
+
+  transition:.3s;
+}
+
+.primary{
+  background:white;
+  color:#2563eb;
+
+  box-shadow:0 12px 30px rgba(0,0,0,.25);
+}
+
+.secondary{
+  color:white;
+  border:2px solid rgba(255,255,255,.5);
+}
+
+.btn:hover{
+  transform:translateY(-5px);
+}
+
+/* ================= UNIVERSITY PHOTO ================= */
+
+.hero-photo{
+  position:relative;
+
+  height:500px;
+
+  overflow:hidden;
+
+  border-radius:35px;
+
+  border:5px solid rgba(255,255,255,.18);
+
+  box-shadow:0 30px 70px rgba(0,0,0,.35);
+}
+
+.hero-photo img{
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+}
+
+.photo-overlay{
+  position:absolute;
+  inset:0;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+
+  padding:30px;
+
+  background:
+  linear-gradient(
+    transparent,
+    rgba(0,0,0,.8)
+  );
+
+  color:white;
+}
+
+.photo-overlay h2{
+  font-size:32px;
+  margin-bottom:8px;
+}
+
+.photo-overlay p{
+  color:#e2e8f0;
+}
+
+.floating{
+  position:absolute;
+
+  padding:14px 18px;
+
+  background:white;
+  color:#172033;
+
+  border-radius:15px;
+
+  font-weight:800;
+
+  box-shadow:0 12px 30px rgba(0,0,0,.2);
+}
+
+.float-one{
+  top:30px;
+  right:-15px;
+}
+
+.float-two{
+  bottom:30px;
+  left:-15px;
+}
+
+/* ================= FEATURES ================= */
+
+.features{
+  background:white;
+  padding:55px 7%;
+}
+
+.feature-grid{
+  max-width:1200px;
+  margin:auto;
+
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+
+  gap:20px;
+}
+
+.feature{
+  padding:25px;
+
+  background:#f8fafc;
+
+  border:1px solid #e2e8f0;
+
+  border-radius:20px;
+
+  text-align:center;
+
+  transition:.3s;
+}
+
+.feature:hover{
+  transform:translateY(-7px);
+
+  box-shadow:0 15px 35px rgba(37,99,235,.12);
+}
+
+.feature-icon{
+  font-size:40px;
+  margin-bottom:12px;
+}
+
+.feature h3{
+  margin-bottom:8px;
+}
+
+.feature p{
+  color:#64748b;
+  font-size:14px;
+  line-height:1.5;
+}
+
+/* ================= GRADES ================= */
+
+.grades-section{
+  padding:80px 7%;
+  background:#f5f8ff;
+}
+[8/22/2026 8:10 PM] Paulos Bunaro: .section-title{
+  text-align:center;
+  margin-bottom:45px;
+}
+
+.section-title h2{
+  font-size:38px;
+  margin-bottom:10px;
+}
+
+.section-title p{
+  color:#64748b;
+}
+
+.grade-box{
+  max-width:1200px;
+  margin:0 auto 25px;
+
+  padding:30px;
+
+  background:white;
+
+  border-radius:25px;
+
+  box-shadow:0 10px 30px rgba(0,0,0,.06);
+
+  border:1px solid #e2e8f0;
+}
+
+.grade-box h2{
+  color:#1e3a8a;
+  margin-bottom:20px;
+}
+
+.subject-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:14px;
+}
+
+.subject{
+  padding:16px;
+
+  background:#f8fafc;
+
+  border:1px solid #e2e8f0;
+
+  border-radius:15px;
+
+  font-weight:700;
+
+  cursor:pointer;
+
+  transition:.3s;
+}
+
+.subject:hover{
+  transform:translateY(-4px);
+
+  color:#2563eb;
+
+  background:#eff6ff;
+
+  border-color:#2563eb;
+}
+
+.exam-grade{
+  border-top:5px solid #2563eb;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+  background:#0f172a;
+  color:white;
+
+  text-align:center;
+
+  padding:45px 7%;
+}
+
+footer h2{
+  margin-bottom:10px;
+}
+
+footer p{
+  color:#94a3b8;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+  nav ul{
+    display:none;
+  }
+
+  .hero{
+    padding:120px 0 70px;
+  }
+
+  .hero-content{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+
+  .hero-text p{
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .buttons{
+    justify-content:center;
+  }
+
+  .hero-photo{
+    width:100%;
+    max-width:550px;
+    margin:auto;
+  }
+
+  .feature-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:600px){
+
+  .hero-text h1{
+    font-size:45px;
+  }
+
+  .hero-photo{
+    height:400px;
+  }
+
+  .floating{
+    display:none;
+  }
+
+  .feature-grid{
+    grid-template-columns:1fr;
+  }
+
+  .subject-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .grade-box{
+    padding:20px 15px;
+  }
+
+}
+
+</style>
+
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
-  <nav>
-    <div class="logo">Learn<span>Hub</span> 🇪🇹</div>
+<!-- ================= NAVBAR ================= -->
 
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#grades">Grades</a></li>
-      <li><a href="#resources">Resources</a></li>
-      <li><a href="#exam">Exams</a></li>
-      <li><a href="#university">University</a></li>
-      <li><a href="#grades" class="nav-btn">Start Learning</a></li>
-    </ul>
-  </nav>
+<nav>
+
+  <div class="logo">
+    Paul<span>Academy</span> 🎓
+  </div>
+
+  <ul>
+
+    <li><a href="#">Home</a></li>
+
+    <li><a href="#grades">Grades</a></li>
+
+    <li><a href="#resources">Resources</a></li>
+
+    <li><a href="#exams">Exams</a></li>
+
+    <li><a href="#university">University</a></li>
+
+    <li>
+      <a href="#grades" class="nav-btn">
+        Start Learning
+      </a>
+    </li>
+
+  </ul>
+
+</nav>
 
 
-  <!-- HERO -->
-  <div class="hero">
+<!-- ================= HOMEPAGE HERO ================= -->
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <!-- LEFT -->
 
     <div class="hero-text">
 
-      <small>🎓 Ethiopian Students Learning Platform</small>
+      <div class="badge">
+        🎓 ETHIOPIAN STUDENTS LEARNING PLATFORM
+      </div>
 
       <h1>
-        Learn Better.<br>
-        <span>Practice More.</span><br>
-        Succeed.
+        Welcome to<br>
+        <span>Paul Academy</span>
       </h1>
 
       <p>
-        Access lessons, short notes, video tutorials, books,
-        questions and answers, exam papers and entrance exam
-        preparation — all in one place.
+        Learn smarter, practice confidently and
+        prepare for your exams with organized
+        lessons, short notes, books, videos,
+        questions and answers.
       </p>
-[8/22/2026 7:39 PM] Paulos Bunaro: <div class="buttons">
-        <a href="#grades" class="primary-btn">
+
+      <div class="buttons">
+
+        <a href="#grades" class="btn primary">
           🚀 Start Learning
         </a>
 
-        <a href="#resources" class="secondary-btn">
-          📚 Explore Resources
+        <a href="#grades" class="btn secondary">
+          📚 Explore Grades
         </a>
+
       </div>
 
     </div>
 
 
-    <div class="hero-card">
+    <!-- RIGHT UNIVERSITY PHOTO -->
 
-      <h2>📚 Your Learning Journey</h2>
+    <div class="hero-photo">
 
-      <p>
-        From Grade 1 to Grade 12, prepare yourself with
-        organized learning materials.
-      </p>
+      <img
+        src="images/university.jpg"
+        alt="Paul Academy University"
+      >
 
-      <div class="student-icon">🎓</div>
+      <div class="photo-overlay">
 
-      <div class="floating float1">
+        <h2>
+          Paul Academy
+        </h2>
+
+        <p>
+          Learn today. Build your future tomorrow.
+        </p>
+
+      </div>
+
+      <div class="floating float-one">
         🎥 Video Lessons
       </div>
 
-      <div class="floating float2">
+      <div class="floating float-two">
         📝 Exam Practice
       </div>
 
@@ -479,228 +585,343 @@
 
   </div>
 
+</section>
 
-  <!-- GRADES -->
-  <section id="grades">
 
-    <div class="section-title">
-      <h2>📖 Choose Your Grade</h2>
-      <p>Select your grade and start learning.</p>
+<!-- ================= FEATURES ================= -->
+
+<section class="features">
+
+  <div class="feature-grid">
+
+    <div class="feature">
+      <div class="feature-icon">📚</div>
+      <h3>Study Materials</h3>
+      <p>Books, short notes and useful materials.</p>
     </div>
 
-    <div class="grades">
-
-      <div class="grade">
-        <div class="grade-icon">🧒</div>
-        <h3>Grade 1</h3>
-        <p>Basic Learning</p>
-      </div>
-
-      <div class="grade">
-        <div class="grade-icon">📘</div>
-        <h3>Grade 2</h3>
-        <p>Elementary Learning</p>
-      </div>
-
-      <div class="grade">
-        <div class="grade-icon">📗</div>
-        <h3>Grade 3</h3>
-        <p>Elementary Learning</p>
-      </div>
-
-      <div class="grade">
-        <div class="grade-icon">📕</div>
-        <h3>Grade 4</h3>
-        <p>Elementary Learning</p>
-      </div>
-
-      <div class="grade">
-        <div class="grade-icon">📙</div>
-        <h3>Grade 5</h3>
-        <p>Elementary Learning</p>
-      </div>
-
-      <div class="grade">
-        <div class="grade-icon">📝</div>
-        <h3>Grade 6</h3>
-        <p>Regional Exam Preparation</p>
-      </div>
-
-      <div class="grade">
-        <div class="grade-icon">📚</div>
-        <h3>Grade 7</h3>
-        <p>Middle School</p>
-      </div>
-
-      <div class="grade">
-        <div class="grade-icon">🎯</div>
-        <h3>Grade 8</h3>
-        <p>Exam Preparation</p>
-      </div>
-
-      <div class="grade">
-        <div class="grade-icon">📖</div>
-        <h3>Grade 9</h3>
-        <p>Secondary School</p>
-      </div>
-
-      <div class="grade">
-        <div class="grade-icon">🔬</div>
-        <h3>Grade 10</h3>
-        <p>Secondary School</p>
-      </div>
-
-      <div class="grade">
-        <div class="grade-icon">🎓</div>
-        <h3>Grade 11</h3>
-        <p>Preparatory School</p>
-      </div>
-
-      <div class="grade">
-        <div class="grade-icon">🏆</div>
-        <h3>Grade 12</h3>
-        <p>Entrance Exam Preparation</p>
-      </div>
-
+    <div class="feature">
+      <div class="feature-icon">🎥</div>
+      <h3>Video Lessons</h3>
+      <p>Learn difficult topics through videos.</p>
+    </div>
+[8/22/2026 8:10 PM] Paulos Bunaro: <div class="feature">
+      <div class="feature-icon">📝</div>
+      <h3>Questions & Answers</h3>
+      <p>Practice questions and check answers.</p>
     </div>
 
-  </section>
-
-
-  <!-- RESOURCES -->
-  <section id="resources" class="resources">
-
-    <div class="section-title">
-      <h2>✨ Everything You Need</h2>
-      <p>All learning resources organized in one place.</p>
+    <div class="feature">
+      <div class="feature-icon">🏆</div>
+      <h3>Exam Preparation</h3>
+      <p>Prepare for important examinations.</p>
     </div>
 
-    <div class="resource-grid">
+  </div>
 
-      <div class="resource">
-        <div class="icon">🎥</div>
-        <h3>Video Lessons</h3>
-        <p>
-          Learn difficult topics through clear and
-          understandable video lessons.
-        </p>
-      </div>
-
-      <div class="resource">
-        <div class="icon">📝</div>
-        <h3>Questions & Answers</h3>
-        <p>
-          Practice questions and check detailed answers
-          to improve your understanding.
-        </p>
-      </div>
-
-      <div class="resource">
-        <div class="icon">📄</div>
-        <h3>Exam Papers</h3>
-        <p>
-          Prepare using previous and practice examination
-          papers.
-        </p>
-      </div>
-
-      <div class="resource">
-        <div class="icon">📚</div>
-        <h3>Books & Notes</h3>
-        <p>
-          Find short notes, reference books and useful
-          study materials.
-        </p>
-      </div>
-
-      <div class="resource">
-        <div class="icon">🎯</div>
-        <h3>Practice Tests</h3>
-        <p>
-          Test your knowledge and discover areas that
-          need more practice.
-        </p>
-      </div>
-[8/22/2026 7:39 PM] Paulos Bunaro: <div class="resource">
-        <div class="icon">🏆</div>
-        <h3>Entrance Preparation</h3>
-        <p>
-          Prepare for Grade 12 entrance examinations
-          with organized resources.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
+</section>
 
 
-  <!-- EXAM -->
-  <section id="exam">
+<!-- ================= GRADES ================= -->
 
-    <div class="exam-box">
+<section id="grades" class="grades-section">
 
-      <div>
-        <h2>🎯 Prepare. Practice. Pass.</h2>
+  <div class="section-title">
 
-        <p>
-          Get ready for Regional Exams, Grade 8 examinations,
-          Grade 10 preparation and Grade 12 Entrance Exams
-          using questions, answers, books and video lessons.
-        </p>
-      </div>
-
-      <a href="#grades" class="exam-btn">
-        Start Preparation →
-      </a>
-
-    </div>
-
-  </section>
-
-
-  <!-- UNIVERSITY -->
-  <section id="university" class="university">
-
-    <div class="section-title">
-      <h2>🎓 University & Future</h2>
-      <p>Prepare today for your university journey.</p>
-    </div>
-
-    <div class="university-card">
-
-      <!-- Replace this image URL with your university photo -->
-      <img
-        class="university-photo"
-        src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80"
-        alt="University Campus">
-
-      <h2>Build Your Future Through Education</h2>
-
-      <p>
-        Study smart, practice regularly and prepare yourself
-        for the next step of your educational journey.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- FOOTER -->
-  <footer>
-
-    <h2>LearnHub 🇪🇹</h2>
+    <h2>📚 Grades & Subjects</h2>
 
     <p>
-      Learn • Practice • Prepare • Succeed
+      Choose your grade and find its subjects.
     </p>
 
-    <div class="copyright">
-      © 2026 LearnHub Ethiopia. All Rights Reserved.
+  </div>
+
+
+  <!-- GRADE 1 -->
+
+  <div class="grade-box">
+
+    <h2>🎒 Grade 1</h2>
+
+    <div class="subject-grid">
+
+      <div class="subject">🇪🇹 Amharic</div>
+      <div class="subject">🇬🇧 English</div>
+      <div class="subject">➗ Mathematics</div>
+      <div class="subject">🌱 Environmental Science</div>
+      <div class="subject">❤️ Moral Education</div>
+      <div class="subject">🏃 Health & Physical Education</div>
+      <div class="subject">💻 ICT</div>
+
     </div>
 
-  </footer>
+  </div>
+
+
+  <!-- GRADE 2 -->
+
+  <div class="grade-box">
+
+    <h2>📘 Grade 2</h2>
+
+    <div class="subject-grid">
+
+      <div class="subject">🇪🇹 Amharic</div>
+      <div class="subject">🇬🇧 English</div>
+      <div class="subject">➗ Mathematics</div>
+      <div class="subject">🌱 Environmental Science</div>
+      <div class="subject">❤️ Moral Education</div>
+      <div class="subject">🏃 Health & Physical Education</div>
+      <div class="subject">💻 ICT</div>
+
+    </div>
+
+  </div>
+
+
+  <!-- GRADE 3 -->
+
+  <div class="grade-box">
+
+    <h2>📗 Grade 3</h2>
+
+    <div class="subject-grid">
+
+      <div class="subject">🇪🇹 Amharic</div>
+      <div class="subject">🇬🇧 English</div>
+      <div class="subject">➗ Mathematics</div>
+      <div class="subject">🌱 Environmental Science</div>
+      <div class="subject">❤️ Moral Education</div>
+      <div class="subject">🏃 Health & Physical Education</div>
+      <div class="subject">💻 ICT</div>
+
+    </div>
+
+  </div>
+
+
+  <!-- GRADE 4 -->
+
+  <div class="grade-box">
+
+    <h2>📕 Grade 4</h2>
+
+    <div class="subject-grid">
+
+      <div class="subject">🇪🇹 Amharic</div>
+      <div class="subject">🇬🇧 English</div>
+      <div class="subject">➗ Mathematics</div>
+      <div class="subject">🌱 Environmental Science</div>
+      <div class="subject">❤️ Moral Education</div>
+      <div class="subject">🏃 Health & Physical Education</div>
+      <div class="subject">💻 ICT</div>
+
+    </div>
+
+  </div>
+
+
+  <!-- GRADE 5 -->
+
+  <div class="grade-box">
+
+    <h2>📙 Grade 5</h2>
+
+    <div class="subject-grid">
+
+      <div class="subject">🇪🇹 Amharic</div>
+      <div class="subject">🇬🇧 English</div>
+      <div class="subject">➗ Mathematics</div>
+      <div class="subject">🌱 Environmental Science</div>
+      <div class="subject">❤️ Moral Education</div>
+      <div class="subject">🏃 Health & Physical Education</div>
+      <div class="subject">💻 ICT</div>
+
+    </div>
+
+  </div>
+
+
+  <!-- GRADE 6 -->
+
+  <div class="grade-box exam-grade">
+
+    <h2>📝 Grade 6 — Regional Exam</h2>
+
+    <div class="subject-grid">
+
+      <div class="subject">🇪🇹 Amharic</div>
+      <div class="subject">🇬🇧 English</div>
+      <div class="subject">➗ Mathematics</div>
+      <div class="subject">🌱 Environmental Science</div>
+      <div class="subject">❤️ Moral Education</div>
+      <div class="subject">🌍 Wolaita</div>
+      <div class="subject">🌍 Sidama</div>
+
+    </div>
+
+  </div>
+
+
+  <!-- GRADE 7 -->
+
+  <div class="grade-box">
+
+    <h2>📚 Grade 7</h2>
+
+    <div class="subject-grid">
+
+      <div class="subject">🇪🇹 Amharic</div>
+      <div class="subject">🇬🇧 English</div>
+      <div class="subject">➗ Mathematics</div>
+      <div class="subject">🔬 General Science</div>
+      <div class="subject">🌍 Social Studies</div>
+      <div class="subject">⚖️ Citizenship</div>
+      <div class="subject">💻 Information Technology</div>
+      <div class="subject">🎨 Performing & Visual Art</div>
+      <div class="subject">🏃 Health & Physical Education</div>
+
+    </div>
+
+  </div>
+[8/22/2026 8:10 PM] Paulos Bunaro: <!-- GRADE 8 -->
+
+  <div class="grade-box exam-grade">
+
+    <h2>🎯 Grade 8 — Exam Preparation</h2>
+
+    <div class="subject-grid">
+
+      <div class="subject">🇪🇹 Amharic</div>
+      <div class="subject">🇬🇧 English</div>
+      <div class="subject">➗ Mathematics</div>
+      <div class="subject">🔬 General Science</div>
+      <div class="subject">🌍 Social Science</div>
+      <div class="subject">⚖️ Citizenship</div>
+      <div class="subject">📝 Practice Questions</div>
+      <div class="subject">🎥 Video Lessons</div>
+
+    </div>
+
+  </div>
+
+
+  <!-- GRADE 9 -->
+
+  <div class="grade-box">
+
+    <h2>📖 Grade 9</h2>
+
+    <div class="subject-grid">
+
+      <div class="subject">🇬🇧 English</div>
+      <div class="subject">➗ Mathematics</div>
+      <div class="subject">⚡ Physics</div>
+      <div class="subject">🧪 Chemistry</div>
+      <div class="subject">🧬 Biology</div>
+      <div class="subject">🌍 Geography</div>
+      <div class="subject">📜 History</div>
+      <div class="subject">⚖️ Citizenship</div>
+      <div class="subject">💰 Economics</div>
+      <div class="subject">💻 IT</div>
+      <div class="subject">🏃 HPE</div>
+      <div class="subject">🎨 PVA</div>
+
+    </div>
+
+  </div>
+
+
+  <!-- GRADE 10 -->
+
+  <div class="grade-box exam-grade">
+
+    <h2>🔬 Grade 10 — Exam Preparation</h2>
+
+    <div class="subject-grid">
+
+      <div class="subject">🇬🇧 English</div>
+      <div class="subject">➗ Mathematics</div>
+      <div class="subject">⚡ Physics</div>
+      <div class="subject">🧪 Chemistry</div>
+      <div class="subject">🧬 Biology</div>
+      <div class="subject">🌍 Geography</div>
+      <div class="subject">📜 History</div>
+      <div class="subject">⚖️ Citizenship</div>
+      <div class="subject">💰 Economics</div>
+      <div class="subject">💻 IT</div>
+      <div class="subject">🏃 HPE</div>
+      <div class="subject">🎨 PVA</div>
+
+    </div>
+
+  </div>
+
+
+  <!-- GRADE 11 -->
+
+  <div class="grade-box">
+
+    <h2>🎓 Grade 11</h2>
+
+    <div class="subject-grid">
+
+      <div class="subject">🇬🇧 English</div>
+      <div class="subject">➗ Mathematics</div>
+      <div class="subject">🧬 Biology</div>
+      <div class="subject">🧪 Chemistry</div>
+      <div class="subject">⚡ Physics</div>
+      <div class="subject">💻 IT</div>
+      <div class="subject">🧠 Scholastic Aptitude</div>
+      <div class="subject">📜 History</div>
+      <div class="subject">🌱 Agriculture</div>
+
+    </div>
+
+  </div>
+
+
+  <!-- GRADE 12 -->
+
+  <div class="grade-box exam-grade">
+
+    <h2>🏆 Grade 12 — Entrance Exam</h2>
+
+    <div class="subject-grid">
+
+      <div class="subject">🇬🇧 English</div>
+      <div class="subject">➗ Mathematics</div>
+      <div class="subject">🧬 Biology</div>
+      <div class="subject">🧪 Chemistry</div>
+      <div class="subject">⚡ Physics</div>
+      <div class="subject">💻 IT</div>
+      <div class="subject">🧠 Scholastic Aptitude</div>
+      <div class="subject">📜 History</div>
+      <div class="subject">🌱 Agriculture</div>
+
+      <div class="subject">📝 Entrance Questions</div>
+      <div class="subject">📚 Entrance Books</div>
+      <div class="subject">🎥 Video Lessons</div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+  <h2>Paul Academy 🎓</h2>
+
+  <p>
+    Learn • Practice • Prepare • Succeed
+  </p>
+
+</footer>
+
 
 </body>
 </html>
