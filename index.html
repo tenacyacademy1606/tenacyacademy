@@ -1,4 +1,4 @@
-[8/22/2026 8:21 PM] Paulos Bunaro: <!DOCTYPE html>
+[8/22/2026 8:59 PM] Paulos Bunaro: <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -7,594 +7,731 @@
 <title>PAUL ACADEMY | Learn Today. Lead Tomorrow.</title>
 
 <style>
+
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
 }
 
 html{
-  scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-  background:#f5f8ff;
-  color:#10234b;
+    background:#f5f8ff;
+    color:#172033;
 }
 
-/* NAVBAR */
-nav{
-  height:78px;
-  padding:0 5%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  background:#061d46;
-  color:white;
-  position:sticky;
-  top:0;
-  z-index:1000;
+/* ================= NAVBAR ================= */
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:75px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 7%;
+    background:rgba(4,25,60,0.95);
+    z-index:1000;
+    box-shadow:0 4px 20px rgba(0,0,0,0.15);
 }
 
 .logo{
-  font-size:27px;
-  font-weight:900;
+    color:white;
+    font-size:25px;
+    font-weight:bold;
+    letter-spacing:1px;
 }
 
 .logo span{
-  color:#fbbd24;
+    color:#ffc62b;
 }
 
-nav ul{
-  display:flex;
-  gap:28px;
-  list-style:none;
+.nav-links{
+    display:flex;
+    gap:30px;
+    list-style:none;
 }
 
-nav a{
-  color:white;
-  text-decoration:none;
-  font-weight:bold;
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
 }
 
-nav a:hover{
-  color:#fbbd24;
+.nav-links a:hover{
+    color:#ffc62b;
 }
 
-.login{
-  background:#fbbd24;
-  color:#10234b!important;
-  padding:12px 22px;
-  border-radius:30px;
+.nav-btn{
+    background:#ffc62b;
+    color:#061b3a !important;
+    padding:12px 20px;
+    border-radius:25px;
 }
 
-/* HERO */
-.hero{
-  min-height:650px;
-  padding:70px 5%;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  align-items:center;
-  gap:40px;
+/* ================= HERO ================= */
 
-  background:
-    linear-gradient(110deg,#ffffff 35%,rgba(255,255,255,.7)),
-    url("images/paul-academy-homepage.png");
+.academy-hero{
+    min-height:760px;
+    padding:120px 7% 70px;
 
-  background-size:cover;
-  background-position:center;
+    background-image:
+    linear-gradient(
+        90deg,
+        rgba(3,25,60,0.94) 0%,
+        rgba(3,25,60,0.75) 38%,
+        rgba(3,25,60,0.15) 75%
+    ),
+    url("https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=2000&q=90");
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    align-items:center;
 }
 
-.hero-text{
-  max-width:650px;
+.hero-content{
+    max-width:650px;
+    color:white;
 }
 
-.badge{
-  display:inline-block;
-  background:#1854bd;
-  color:white;
-  padding:10px 20px;
-  border-radius:10px;
-  font-weight:bold;
-  margin-bottom:22px;
+.hero-small{
+    color:#ffc62b;
+    font-size:18px;
+    font-weight:bold;
+    letter-spacing:3px;
+    margin-bottom:15px;
 }
 
-.hero h1{
-  font-size:72px;
-  line-height:.98;
-  margin-bottom:18px;
-  font-weight:900;
+.hero-content h1{
+    font-size:65px;
+    line-height:1.05;
+    margin-bottom:25px;
 }
 
-.hero h1 span{
-  color:#fbbd24;
+.hero-content h1 span{
+    color:#ffc62b;
 }
 
-.hero h2{
-  font-size:27px;
-  margin-bottom:15px;
+.hero-content p{
+    font-size:20px;
+    line-height:1.7;
+    color:#e4ebf5;
+    margin-bottom:35px;
 }
 
-.hero p{
-  font-size:18px;
-  line-height:1.7;
-  color:#52627d;
-  max-width:600px;
-  margin-bottom:25px;
-}
-
-.buttons{
-  display:flex;
-  gap:15px;
-  flex-wrap:wrap;
+.hero-buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
 }
 
 .btn{
-  padding:15px 25px;
-  border-radius:30px;
-  text-decoration:none;
-  font-weight:bold;
-  display:inline-block;
-  transition:.3s;
+    text-decoration:none;
+    padding:16px 28px;
+    border-radius:8px;
+    font-weight:bold;
+    display:inline-block;
+    transition:0.3s;
 }
 
-.start{
-  background:#071e49;
-  color:white;
+.btn-primary{
+    background:#ffc62b;
+    color:#071b3b;
 }
 
-.explore{
-  border:2px solid #071e49;
-  color:#071e49;
+.btn-primary:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 25px rgba(255,198,43,0.35);
 }
 
-.btn:hover{
-  transform:translateY(-4px);
+.btn-outline{
+    border:2px solid white;
+    color:white;
 }
 
-/* FEATURES */
-.features{
-  margin-top:-5px;
-  padding:0 5% 35px;
-  background:#061d46;
+.btn-outline:hover{
+    background:white;
+    color:#071b3b;
 }
 
-.feature-grid{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:16px;
+/* ================= STATS ================= */
+
+.stats{
+    width:86%;
+    margin:-55px auto 70px;
+    position:relative;
+    z-index:10;
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+
+    background:#061d42;
+    border-radius:18px;
+    padding:30px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.2);
 }
 
-.feature{
-  background:white;
-  padding:22px;
-  border-radius:18px;
-  box-shadow:0 10px 30px rgba(0,0,0,.15);
+.stat{
+    text-align:center;
+    color:white;
+    border-right:1px solid rgba(255,255,255,0.2);
 }
 
-.feature-icon{
-  font-size:35px;
-  margin-bottom:10px;
+.stat:last-child{
+    border-right:none;
 }
 
-.feature h3{
-  margin-bottom:8px;
+.stat h2{
+    color:#ffc62b;
+    font-size:35px;
+    margin-bottom:8px;
 }
 
-.feature p{
-  color:#64748b;
-  font-size:14px;
-  line-height:1.5;
+.stat p{
+    color:#dce5f2;
 }
 
-/* GRADES */
-.grades{
-  padding:75px 5%;
-  background:#061d46;
-  color:white;
+/* ================= SECTION ================= */
+
+.section{
+    padding:80px 7%;
 }
 
-.title{
-  margin-bottom:30px;
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
 }
 
-.title h2{
-  font-size:35px;
+.section-title small{
+    color:#e3a900;
+    font-weight:bold;
+    letter-spacing:2px;
 }
 
-.grade-grid{
-  display:grid;
-  grid-template-columns:repeat(6,1fr);
-  gap:12px;
+.section-title h2{
+    font-size:42px;
+    color:#071b3b;
+    margin-top:10px;
 }
 
-.grade{
-  padding:20px 10px;
-  border-radius:12px;
-  text-align:center;
-  text-decoration:none;
-  color:white;
-  font-weight:bold;
-  transition:.3s;
+/* ================= CARDS ================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
 }
 
-.grade:hover{
-  transform:translateY(-6px);
-  box-shadow:0 10px 25px rgba(255,255,255,.15);
+.card{
+    background:white;
+    padding:35px 28px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 8px 30px rgba(0,0,0,0.08);
+    transition:0.3s;
 }
 
-.primary{
-  background:#20a35a;
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 35px rgba(0,0,0,0.14);
 }
 
-.junior{
-  background:#1769d1;
+.icon{
+    width:70px;
+    height:70px;
+    margin:0 auto 20px;
+    border-radius:50%;
+    background:#fff3c9;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:32px;
+}
+[8/22/2026 8:59 PM] Paulos Bunaro: .card h3{
+    color:#071b3b;
+    margin-bottom:15px;
+    font-size:23px;
 }
 
-.secondary{
-  background:#7040c7;
+.card p{
+    color:#667085;
+    line-height:1.7;
 }
 
-.grade small{
-  display:block;
-  margin-top:7px;
-  opacity:.9;
+/* ================= ABOUT ================= */
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
 }
 
-/* SUBJECT SECTION */
-.subject-section{
-  padding:80px 5%;
-  background:white;
+.about-image{
+    min-height:430px;
+    border-radius:20px;
+
+    background-image:
+    linear-gradient(rgba(4,25,60,0.2),rgba(4,25,60,0.2)),
+    url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=85");
+
+    background-size:cover;
+    background-position:center;
 }
 
-.subject-title{
-  text-align:center;
-  margin-bottom:40px;
+.about-text h2{
+    font-size:42px;
+    color:#071b3b;
+    margin:15px 0 20px;
 }
 
-.subject-title h2{
-  font-size:38px;
+.about-text p{
+    color:#667085;
+    line-height:1.8;
+    margin-bottom:20px;
 }
 
-.subject-title p{
-  color:#64748b;
-  margin-top:10px;
+.check{
+    margin:12px 0;
+    font-weight:bold;
+    color:#172033;
 }
 
-.subject-grid{
-  max-width:1100px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:18px;
+.check span{
+    color:#e3a900;
+    margin-right:10px;
 }
 
-.subject{
-  background:#f8fafc;
-  border:1px solid #e2e8f0;
-  padding:25px;
-  border-radius:18px;
-  text-align:center;
-  font-weight:bold;
-  transition:.3s;
+/* ================= CTA ================= */
+
+.cta{
+    margin:40px 7% 80px;
+    padding:70px 30px;
+    text-align:center;
+    border-radius:25px;
+
+    background:
+    linear-gradient(
+        rgba(3,25,60,0.92),
+        rgba(3,25,60,0.92)
+    ),
+    url("https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=1600&q=85");
+
+    background-size:cover;
+    background-position:center;
+    color:white;
 }
 
-.subject:hover{
-  background:#eff6ff;
-  border-color:#2563eb;
-  transform:translateY(-5px);
+.cta h2{
+    font-size:42px;
+    margin-bottom:15px;
 }
 
-/* FOOTER */
+.cta p{
+    color:#dce5f2;
+    font-size:18px;
+    margin-bottom:30px;
+}
+
+/* ================= FOOTER ================= */
+
 footer{
-  background:#07152f;
-  color:white;
-  text-align:center;
-  padding:40px 5%;
+    background:#03142d;
+    color:white;
+    padding:50px 7% 25px;
 }
 
-footer h2{
-  font-size:27px;
-  margin-bottom:10px;
+.footer-content{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:40px;
+    margin-bottom:35px;
 }
 
-footer span{
-  color:#fbbd24;
+footer h3{
+    color:#ffc62b;
+    margin-bottom:18px;
 }
 
 footer p{
-  color:#94a3b8;
+    color:#b9c5d6;
+    line-height:1.7;
 }
 
-/* MOBILE */
+footer ul{
+    list-style:none;
+}
+
+footer li{
+    margin:10px 0;
+}
+
+footer a{
+    color:#b9c5d6;
+    text-decoration:none;
+}
+
+footer a:hover{
+    color:#ffc62b;
+}
+
+.copyright{
+    border-top:1px solid rgba(255,255,255,0.1);
+    padding-top:20px;
+    text-align:center;
+    color:#8e9bad;
+}
+
+/* ================= MOBILE ================= */
+
 @media(max-width:900px){
 
-  nav ul{
-    display:none;
-  }
-[8/22/2026 8:21 PM] Paulos Bunaro: .hero{
-    grid-template-columns:1fr;
-    text-align:center;
-    background-position:center;
-  }
+    .navbar{
+        padding:0 5%;
+    }
 
-  .hero-text{
-    margin:auto;
-  }
+    .nav-links{
+        display:none;
+    }
 
-  .hero h1{
-    font-size:52px;
-  }
+    .academy-hero{
+        min-height:700px;
+        padding:120px 6% 60px;
+        background-position:center;
+    }
 
-  .buttons{
-    justify-content:center;
-  }
+    .hero-content h1{
+        font-size:48px;
+    }
 
-  .feature-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+        gap:25px;
+    }
 
-  .grade-grid{
-    grid-template-columns:repeat(3,1fr);
-  }
+    .stat{
+        border-right:none;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    .footer-content{
+        grid-template-columns:1fr;
+    }
 }
 
-@media(max-width:600px){
+@media(max-width:500px){
 
-  .hero{
-    min-height:600px;
-    padding:60px 6%;
-  }
+    .hero-content h1{
+        font-size:39px;
+    }
 
-  .hero h1{
-    font-size:43px;
-  }
+    .hero-content p{
+        font-size:17px;
+    }
 
-  .hero h2{
-    font-size:21px;
-  }
+    .stats{
+        width:90%;
+        padding:20px 10px;
+    }
 
-  .feature-grid{
-    grid-template-columns:1fr;
-  }
+    .stat h2{
+        font-size:27px;
+    }
 
-  .grade-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
+    .section-title h2,
+    .about-text h2,
+    .cta h2{
+        font-size:32px;
+    }
 }
+
 </style>
 </head>
 
-
 <body>
 
-<!-- NAVBAR -->
-<nav>
+<!-- ================= NAVBAR ================= -->
 
-  <div class="logo">
-    PAUL <span>ACADEMY</span> 🎓
-  </div>
+<header class="navbar">
 
-  <ul>
-    <li><a href="#">Home</a></li>
-    <li><a href="#grades">Grades</a></li>
-    <li><a href="#subjects">Subjects</a></li>
-    <li><a href="#resources">Resources</a></li>
-    <li><a href="#exams">Exams</a></li>
-    <li><a href="#" class="login">Login / Register</a></li>
-  </ul>
-
-</nav>
-
-
-<!-- HERO -->
-<section class="hero">
-
-  <div class="hero-text">
-
-    <div class="badge">
-      WELCOME TO
+    <div class="logo">
+        PAUL <span>ACADEMY</span>
     </div>
 
-    <h1>
-      PAUL<br>
-      <span>ACADEMY</span>
-    </h1>
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li>
+            <a class="nav-btn" href="#courses">Get Started</a>
+        </li>
+    </ul>
 
-    <h2>
-      Learn Today. Lead Tomorrow.
-    </h2>
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="academy-hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="hero-small">
+            WELCOME TO PAUL ACADEMY
+        </div>
+
+        <h1>
+            Learn Today.<br>
+            <span>Lead Tomorrow.</span>
+        </h1>
+
+        <p>
+            Quality education, modern learning and
+            a brighter future. Build your knowledge,
+            discover your potential and become a leader.
+        </p>
+
+        <div class="hero-buttons">
+[8/22/2026 8:59 PM] Paulos Bunaro: <a href="#courses" class="btn btn-primary">
+                Explore Courses →
+            </a>
+
+            <a href="#about" class="btn btn-outline">
+                About Us
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= STATS ================= -->
+
+<section class="stats">
+
+    <div class="stat">
+        <h2>15K+</h2>
+        <p>Students</p>
+    </div>
+
+    <div class="stat">
+        <h2>120+</h2>
+        <p>Courses</p>
+    </div>
+
+    <div class="stat">
+        <h2>50+</h2>
+        <p>Expert Teachers</p>
+    </div>
+
+    <div class="stat">
+        <h2>10+</h2>
+        <p>Years Excellence</p>
+    </div>
+
+</section>
+
+
+<!-- ================= COURSES ================= -->
+
+<section class="section" id="courses">
+
+    <div class="section-title">
+
+        <small>OUR PROGRAMS</small>
+
+        <h2>Explore Our Courses</h2>
+
+    </div>
+
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="icon">📚</div>
+
+            <h3>Mathematics</h3>
+
+            <p>
+                Build strong mathematical thinking,
+                problem-solving skills and confidence.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">🔬</div>
+
+            <h3>Science</h3>
+
+            <p>
+                Discover the world through science,
+                experiments and modern learning.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">💻</div>
+
+            <h3>Computer Science</h3>
+
+            <p>
+                Learn technology, programming and
+                digital skills for the future.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="section" id="about">
+
+    <div class="about">
+
+        <div class="about-image"></div>
+
+        <div class="about-text">
+
+            <small style="color:#e3a900;font-weight:bold;">
+                ABOUT PAUL ACADEMY
+            </small>
+
+            <h2>
+                Education That Builds The Future
+            </h2>
+
+            <p>
+                At Paul Academy, we believe every student
+                has the ability to achieve great things.
+                Our goal is to provide quality education
+                in a modern and inspiring environment.
+            </p>
+
+            <div class="check">
+                <span>✓</span> Experienced Teachers
+            </div>
+
+            <div class="check">
+                <span>✓</span> Modern Learning Environment
+            </div>
+
+            <div class="check">
+                <span>✓</span> Student-Focused Education
+            </div>
+
+            <div class="check">
+                <span>✓</span> Future-Ready Skills
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section class="cta" id="contact">
+
+    <h2>Ready To Start Your Journey?</h2>
 
     <p>
-      Your complete learning platform from Grade 1 to Grade 12.
-      Access short notes, books, videos, questions, answers
-      and exam papers all in one place.
+        Join Paul Academy and take the next step
+        toward a brighter future.
     </p>
 
-    <div class="buttons">
-
-      <a href="#grades" class="btn start">
+    <a href="#courses" class="btn btn-primary">
         Start Learning →
-      </a>
-
-      <a href="#grades" class="btn explore">
-        Explore Grades →
-      </a>
-
-    </div>
-
-  </div>
+    </a>
 
 </section>
 
 
-<!-- FEATURES -->
-<section class="features">
+<!-- ================= FOOTER ================= -->
 
-  <div class="feature-grid">
-
-    <div class="feature">
-      <div class="feature-icon">📚</div>
-      <h3>Study Materials</h3>
-      <p>Short notes, books and useful resources.</p>
-    </div>
-
-    <div class="feature">
-      <div class="feature-icon">🎥</div>
-      <h3>Video Lessons</h3>
-      <p>Learn difficult topics through videos.</p>
-    </div>
-
-    <div class="feature">
-      <div class="feature-icon">❓</div>
-      <h3>Questions & Answers</h3>
-      <p>Practice questions and check answers.</p>
-    </div>
-
-    <div class="feature">
-      <div class="feature-icon">📝</div>
-      <h3>Exam Preparation</h3>
-      <p>Prepare for tests and entrance exams.</p>
-    </div>
-
-    <div class="feature">
-      <div class="feature-icon">📈</div>
-      <h3>Track Progress</h3>
-      <p>Improve your learning every day.</p>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- GRADES -->
-<section class="grades" id="grades">
-
-  <div class="title">
-    <h2>Explore by Grade</h2>
-  </div>
-
-  <div class="grade-grid">
-
-    <a class="grade primary" href="#subjects">
-      Grade 1
-      <small>Primary</small>
-    </a>
-
-    <a class="grade primary" href="#subjects">
-      Grade 2
-      <small>Primary</small>
-    </a>
-
-    <a class="grade primary" href="#subjects">
-      Grade 3
-      <small>Primary</small>
-    </a>
-
-    <a class="grade primary" href="#subjects">
-      Grade 4
-      <small>Primary</small>
-    </a>
-
-    <a class="grade primary" href="#subjects">
-      Grade 5
-      <small>Primary</small>
-    </a>
-
-    <a class="grade primary" href="#subjects">
-      Grade 6
-      <small>Regional Exam</small>
-    </a>
-
-    <a class="grade junior" href="#subjects">
-      Grade 7
-      <small>Junior</small>
-    </a>
-
-    <a class="grade junior" href="#subjects">
-      Grade 8
-      <small>Junior Exam</small>
-    </a>
-
-    <a class="grade secondary" href="#subjects">
-      Grade 9
-      <small>Secondary</small>
-    </a>
-
-    <a class="grade secondary" href="#subjects">
-      Grade 10
-      <small>Secondary</small>
-    </a>
-
-    <a class="grade secondary" href="#subjects">
-      Grade 11
-      <small>Preparatory</small>
-    </a>
-
-    <a class="grade secondary" href="#subjects">
-      Grade 12
-      <small>Entrance Exam</small>
-    </a>
-
-  </div>
-
-</section>
-
-
-<!-- SUBJECTS -->
-<section class="subject-section" id="subjects">
-
-  <div class="subject-title">
-
-    <h2>📚 Subjects</h2>
-[8/22/2026 8:21 PM] Paulos Bunaro: <p>
-      Select your grade first, then study each subject.
-    </p>
-
-  </div>
-
-  <div class="subject-grid">
-
-    <div class="subject">🇪🇹 Amharic</div>
-    <div class="subject">🇬🇧 English</div>
-    <div class="subject">➗ Mathematics</div>
-    <div class="subject">🌱 Environmental Science</div>
-    <div class="subject">🔬 General Science</div>
-    <div class="subject">🌍 Social Science</div>
-    <div class="subject">⚖️ Citizenship</div>
-    <div class="subject">🧪 Chemistry</div>
-    <div class="subject">⚡ Physics</div>
-    <div class="subject">🧬 Biology</div>
-    <div class="subject">🌍 Geography</div>
-    <div class="subject">📜 History</div>
-    <div class="subject">💰 Economics</div>
-    <div class="subject">💻 Information Technology</div>
-    <div class="subject">🧠 Scholastic Aptitude</div>
-    <div class="subject">🏃 Health & Physical Education</div>
-
-  </div>
-
-</section>
-
-
-<!-- FOOTER -->
 <footer>
 
-  <h2>PAUL <span>ACADEMY</span> 🎓</h2>
+    <div class="footer-content">
 
-  <p>
-    Learn • Practice • Prepare • Succeed
-  </p>
+        <div>
 
-  <br>
+            <h3>PAUL ACADEMY</h3>
 
-  <p>
-    © 2026 PAUL ACADEMY. All Rights Reserved.
-  </p>
+            <p>
+                Learn Today. Lead Tomorrow.
+                <br>
+                Quality education for a better future.
+            </p>
 
-</footer>
+        </div>
+
+
+        <div>
+
+            <h3>Quick Links</h3>
+
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+        </div>
+
+
+        <div>
+
+            <h3>Contact</h3>
+
+            <p>
+                📧 info@paulacademy.com
+            </p>
+
+            <p>
+                📞 +251 900 000 000
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+        © 2026 PAUL ACADEMY. All Rights Reserved.
+    </div>
+[8/22/2026 8:59 PM] Paulos Bunaro: </footer>
 
 </body>
 </html>
