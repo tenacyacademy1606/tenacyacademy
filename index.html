@@ -1,13 +1,11 @@
-[8/22/2026 8:59 PM] Paulos Bunaro: <!DOCTYPE html>
+[9/12/2026 1:04 PM] Paulos Bunaro: <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>PAUL ACADEMY | Learn Today. Lead Tomorrow.</title>
+<title>School Online System</title>
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -15,723 +13,507 @@
     font-family:Arial, sans-serif;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
 body{
-    background:#f5f8ff;
-    color:#172033;
+    background:#f4f6f9;
+    color:#222;
 }
 
-/* ================= NAVBAR ================= */
-
-.navbar{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:75px;
+/* LOGIN */
+.login-page{
+    min-height:100vh;
     display:flex;
+    justify-content:center;
     align-items:center;
-    justify-content:space-between;
-    padding:0 7%;
-    background:rgba(4,25,60,0.95);
-    z-index:1000;
-    box-shadow:0 4px 20px rgba(0,0,0,0.15);
+    background:linear-gradient(135deg,#1d4ed8,#2563eb,#60a5fa);
 }
 
-.logo{
-    color:white;
-    font-size:25px;
-    font-weight:bold;
-    letter-spacing:1px;
-}
-
-.logo span{
-    color:#ffc62b;
-}
-
-.nav-links{
-    display:flex;
-    gap:30px;
-    list-style:none;
-}
-
-.nav-links a{
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
-    transition:0.3s;
-}
-
-.nav-links a:hover{
-    color:#ffc62b;
-}
-
-.nav-btn{
-    background:#ffc62b;
-    color:#061b3a !important;
-    padding:12px 20px;
-    border-radius:25px;
-}
-
-/* ================= HERO ================= */
-
-.academy-hero{
-    min-height:760px;
-    padding:120px 7% 70px;
-
-    background-image:
-    linear-gradient(
-        90deg,
-        rgba(3,25,60,0.94) 0%,
-        rgba(3,25,60,0.75) 38%,
-        rgba(3,25,60,0.15) 75%
-    ),
-    url("https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=2000&q=90");
-
-    background-size:cover;
-    background-position:center;
-
-    display:flex;
-    align-items:center;
-}
-
-.hero-content{
-    max-width:650px;
-    color:white;
-}
-
-.hero-small{
-    color:#ffc62b;
-    font-size:18px;
-    font-weight:bold;
-    letter-spacing:3px;
-    margin-bottom:15px;
-}
-
-.hero-content h1{
-    font-size:65px;
-    line-height:1.05;
-    margin-bottom:25px;
-}
-
-.hero-content h1 span{
-    color:#ffc62b;
-}
-
-.hero-content p{
-    font-size:20px;
-    line-height:1.7;
-    color:#e4ebf5;
-    margin-bottom:35px;
-}
-
-.hero-buttons{
-    display:flex;
-    gap:15px;
-    flex-wrap:wrap;
-}
-
-.btn{
-    text-decoration:none;
-    padding:16px 28px;
-    border-radius:8px;
-    font-weight:bold;
-    display:inline-block;
-    transition:0.3s;
-}
-
-.btn-primary{
-    background:#ffc62b;
-    color:#071b3b;
-}
-
-.btn-primary:hover{
-    transform:translateY(-4px);
-    box-shadow:0 10px 25px rgba(255,198,43,0.35);
-}
-
-.btn-outline{
-    border:2px solid white;
-    color:white;
-}
-
-.btn-outline:hover{
+.login-box{
+    width:380px;
     background:white;
-    color:#071b3b;
+    padding:35px;
+    border-radius:15px;
+    box-shadow:0 10px 35px rgba(0,0,0,.2);
 }
 
-/* ================= STATS ================= */
-
-.stats{
-    width:86%;
-    margin:-55px auto 70px;
-    position:relative;
-    z-index:10;
-
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-
-    background:#061d42;
-    border-radius:18px;
-    padding:30px;
-    box-shadow:0 15px 40px rgba(0,0,0,0.2);
-}
-
-.stat{
+.login-box h1{
     text-align:center;
-    color:white;
-    border-right:1px solid rgba(255,255,255,0.2);
-}
-
-.stat:last-child{
-    border-right:none;
-}
-
-.stat h2{
-    color:#ffc62b;
-    font-size:35px;
+    color:#1d4ed8;
     margin-bottom:8px;
 }
 
-.stat p{
-    color:#dce5f2;
-}
-
-/* ================= SECTION ================= */
-
-.section{
-    padding:80px 7%;
-}
-
-.section-title{
+.login-box p{
     text-align:center;
-    margin-bottom:50px;
+    color:#777;
+    margin-bottom:25px;
 }
 
-.section-title small{
-    color:#e3a900;
+.login-box label{
+    display:block;
+    margin:12px 0 6px;
     font-weight:bold;
-    letter-spacing:2px;
 }
 
-.section-title h2{
-    font-size:42px;
-    color:#071b3b;
-    margin-top:10px;
+.login-box input,
+.login-box select{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    font-size:15px;
 }
 
-/* ================= CARDS ================= */
+.login-btn{
+    width:100%;
+    margin-top:20px;
+    padding:13px;
+    border:0;
+    border-radius:8px;
+    background:#2563eb;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.login-btn:hover{
+    background:#1d4ed8;
+}
+
+#error{
+    color:red;
+    text-align:center;
+    margin-top:12px;
+}
+
+/* DASHBOARD */
+.dashboard{
+    display:none;
+    min-height:100vh;
+}
+
+.sidebar{
+    position:fixed;
+    left:0;
+    top:0;
+    bottom:0;
+    width:240px;
+    background:#172554;
+    color:white;
+    padding:20px;
+}
+
+.logo{
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:30px;
+}
+
+.sidebar button{
+    width:100%;
+    padding:12px;
+    margin:5px 0;
+    border:0;
+    border-radius:7px;
+    background:transparent;
+    color:white;
+    text-align:left;
+    cursor:pointer;
+    font-size:15px;
+}
+
+.sidebar button:hover{
+    background:#2563eb;
+}
+
+.logout{
+    margin-top:30px !important;
+    background:#dc2626 !important;
+}
+
+.main{
+    margin-left:240px;
+    padding:25px;
+}
+
+.topbar{
+    background:white;
+    padding:18px 25px;
+    border-radius:10px;
+    margin-bottom:25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.topbar h2{
+    color:#172554;
+}
 
 .cards{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:25px;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
 }
 
 .card{
     background:white;
-    padding:35px 28px;
-    border-radius:15px;
-    text-align:center;
-    box-shadow:0 8px 30px rgba(0,0,0,0.08);
-    transition:0.3s;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 3px 10px rgba(0,0,0,.07);
 }
 
-.card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 15px 35px rgba(0,0,0,0.14);
+.card h3{
+    color:#555;
+    font-size:15px;
 }
 
-.icon{
-    width:70px;
-    height:70px;
-    margin:0 auto 20px;
-    border-radius:50%;
-    background:#fff3c9;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:32px;
-}
-[8/22/2026 8:59 PM] Paulos Bunaro: .card h3{
-    color:#071b3b;
-    margin-bottom:15px;
-    font-size:23px;
-}
-
-.card p{
-    color:#667085;
-    line-height:1.7;
-}
-
-/* ================= ABOUT ================= */
-
-.about{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:60px;
-    align-items:center;
-}
-
-.about-image{
-    min-height:430px;
-    border-radius:20px;
-
-    background-image:
-    linear-gradient(rgba(4,25,60,0.2),rgba(4,25,60,0.2)),
-    url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=85");
-
-    background-size:cover;
-    background-position:center;
-}
-
-.about-text h2{
-    font-size:42px;
-    color:#071b3b;
-    margin:15px 0 20px;
-}
-
-.about-text p{
-    color:#667085;
-    line-height:1.8;
-    margin-bottom:20px;
-}
-
-.check{
-    margin:12px 0;
+.card .number{
+    font-size:30px;
     font-weight:bold;
-    color:#172033;
+    margin-top:10px;
+    color:#2563eb;
 }
 
-.check span{
-    color:#e3a900;
-    margin-right:10px;
+.content{
+    background:white;
+    margin-top:25px;
+    padding:25px;
+    border-radius:12px;
 }
 
-/* ================= CTA ================= */
-
-.cta{
-    margin:40px 7% 80px;
-    padding:70px 30px;
-    text-align:center;
-    border-radius:25px;
-
-    background:
-    linear-gradient(
-        rgba(3,25,60,0.92),
-        rgba(3,25,60,0.92)
-    ),
-    url("https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=1600&q=85");
-
-    background-size:cover;
-    background-position:center;
-    color:white;
-}
-
-.cta h2{
-    font-size:42px;
+.content h2{
     margin-bottom:15px;
 }
 
-.cta p{
-    color:#dce5f2;
-    font-size:18px;
-    margin-bottom:30px;
+table{
+    width:100%;
+    border-collapse:collapse;
 }
 
-/* ================= FOOTER ================= */
-
-footer{
-    background:#03142d;
-    color:white;
-    padding:50px 7% 25px;
+th,td{
+    padding:12px;
+    border-bottom:1px solid #eee;
+    text-align:left;
 }
 
-.footer-content{
-    display:grid;
-    grid-template-columns:2fr 1fr 1fr;
-    gap:40px;
-    margin-bottom:35px;
+th{
+    background:#eff6ff;
 }
 
-footer h3{
-    color:#ffc62b;
-    margin-bottom:18px;
-}
+@media(max-width:800px){
 
-footer p{
-    color:#b9c5d6;
-    line-height:1.7;
-}
-
-footer ul{
-    list-style:none;
-}
-
-footer li{
-    margin:10px 0;
-}
-
-footer a{
-    color:#b9c5d6;
-    text-decoration:none;
-}
-
-footer a:hover{
-    color:#ffc62b;
-}
-
-.copyright{
-    border-top:1px solid rgba(255,255,255,0.1);
-    padding-top:20px;
-    text-align:center;
-    color:#8e9bad;
-}
-
-/* ================= MOBILE ================= */
-
-@media(max-width:900px){
-
-    .navbar{
-        padding:0 5%;
+    .sidebar{
+        width:190px;
     }
 
-    .nav-links{
-        display:none;
+    .main{
+        margin-left:190px;
     }
 
-    .academy-hero{
-        min-height:700px;
-        padding:120px 6% 60px;
-        background-position:center;
-    }
-
-    .hero-content h1{
-        font-size:48px;
-    }
-
-    .stats{
+    .cards{
         grid-template-columns:repeat(2,1fr);
-        gap:25px;
+    }
+}
+
+@media(max-width:600px){
+
+    .sidebar{
+        position:relative;
+        width:100%;
+        height:auto;
     }
 
-    .stat{
-        border-right:none;
+    .main{
+        margin-left:0;
     }
 
     .cards{
         grid-template-columns:1fr;
     }
-
-    .about{
-        grid-template-columns:1fr;
-    }
-
-    .footer-content{
-        grid-template-columns:1fr;
-    }
 }
-
-@media(max-width:500px){
-
-    .hero-content h1{
-        font-size:39px;
-    }
-
-    .hero-content p{
-        font-size:17px;
-    }
-
-    .stats{
-        width:90%;
-        padding:20px 10px;
-    }
-
-    .stat h2{
-        font-size:27px;
-    }
-
-    .section-title h2,
-    .about-text h2,
-    .cta h2{
-        font-size:32px;
-    }
-}
-
 </style>
 </head>
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
+<!-- LOGIN PAGE -->
+<div class="login-page" id="loginPage">
 
-<header class="navbar">
+    <div class="login-box">
 
-    <div class="logo">
-        PAUL <span>ACADEMY</span>
+        <h1>🏫 School Online</h1>
+        <p>School Management System</p>
+
+        <label>User Type</label>
+
+        <select id="userType">
+            <option value="admin">Admin</option>
+            <option value="teacher">Teacher</option>
+            <option value="parent">Parent</option>
+            <option value="student">Student</option>
+        </select>
+
+        <label>Username</label>
+        <input type="text" id="username" placeholder="Enter username">
+
+        <label>Password</label>
+        <input type="password" id="password" placeholder="Enter password">
+
+        <button class="login-btn" onclick="login()">Login</button>
+[9/12/2026 1:04 PM] Paulos Bunaro: <div id="error"></div>
+
     </div>
 
-    <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#courses">Courses</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li>
-            <a class="nav-btn" href="#courses">Get Started</a>
-        </li>
-    </ul>
-
-</header>
+</div>
 
 
-<!-- ================= HERO ================= -->
+<!-- DASHBOARD -->
+<div class="dashboard" id="dashboard">
 
-<section class="academy-hero" id="home">
+    <!-- SIDEBAR -->
+    <div class="sidebar">
 
-    <div class="hero-content">
-
-        <div class="hero-small">
-            WELCOME TO PAUL ACADEMY
+        <div class="logo">
+            🏫 School Online
         </div>
 
-        <h1>
-            Learn Today.<br>
-            <span>Lead Tomorrow.</span>
-        </h1>
+        <div id="menu"></div>
 
-        <p>
-            Quality education, modern learning and
-            a brighter future. Build your knowledge,
-            discover your potential and become a leader.
-        </p>
+        <button class="logout" onclick="logout()">
+            🚪 Logout
+        </button>
 
-        <div class="hero-buttons">
-[8/22/2026 8:59 PM] Paulos Bunaro: <a href="#courses" class="btn btn-primary">
-                Explore Courses →
-            </a>
+    </div>
 
-            <a href="#about" class="btn btn-outline">
-                About Us
-            </a>
 
+    <!-- MAIN -->
+    <div class="main">
+
+        <div class="topbar">
+            <h2 id="dashboardTitle">Dashboard</h2>
+            <span id="welcomeUser"></span>
         </div>
 
-    </div>
+        <div class="cards" id="cards"></div>
 
-</section>
+        <div class="content" id="content">
 
-
-<!-- ================= STATS ================= -->
-
-<section class="stats">
-
-    <div class="stat">
-        <h2>15K+</h2>
-        <p>Students</p>
-    </div>
-
-    <div class="stat">
-        <h2>120+</h2>
-        <p>Courses</p>
-    </div>
-
-    <div class="stat">
-        <h2>50+</h2>
-        <p>Expert Teachers</p>
-    </div>
-
-    <div class="stat">
-        <h2>10+</h2>
-        <p>Years Excellence</p>
-    </div>
-
-</section>
-
-
-<!-- ================= COURSES ================= -->
-
-<section class="section" id="courses">
-
-    <div class="section-title">
-
-        <small>OUR PROGRAMS</small>
-
-        <h2>Explore Our Courses</h2>
-
-    </div>
-
-
-    <div class="cards">
-
-        <div class="card">
-
-            <div class="icon">📚</div>
-
-            <h3>Mathematics</h3>
+            <h2>Welcome</h2>
 
             <p>
-                Build strong mathematical thinking,
-                problem-solving skills and confidence.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="icon">🔬</div>
-
-            <h3>Science</h3>
-
-            <p>
-                Discover the world through science,
-                experiments and modern learning.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="icon">💻</div>
-
-            <h3>Computer Science</h3>
-
-            <p>
-                Learn technology, programming and
-                digital skills for the future.
+                Welcome to the School Online Management System.
             </p>
 
         </div>
 
     </div>
 
-</section>
+</div>
 
 
-<!-- ================= ABOUT ================= -->
+<script>
 
-<section class="section" id="about">
+function login(){
 
-    <div class="about">
+    const type = document.getElementById("userType").value;
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
 
-        <div class="about-image"></div>
+    let valid = false;
 
-        <div class="about-text">
+    if(type === "admin" &&
+       username === "admin" &&
+       password === "1234"){
+        valid = true;
+    }
 
-            <small style="color:#e3a900;font-weight:bold;">
-                ABOUT PAUL ACADEMY
-            </small>
+    if(type === "teacher" &&
+       username === "teacher" &&
+       password === "1234"){
+        valid = true;
+    }
 
-            <h2>
-                Education That Builds The Future
-            </h2>
+    if(type === "parent" &&
+       username === "parent" &&
+       password === "1234"){
+        valid = true;
+    }
 
-            <p>
-                At Paul Academy, we believe every student
-                has the ability to achieve great things.
-                Our goal is to provide quality education
-                in a modern and inspiring environment.
-            </p>
+    if(type === "student" &&
+       username === "student" &&
+       password === "1234"){
+        valid = true;
+    }
 
-            <div class="check">
-                <span>✓</span> Experienced Teachers
-            </div>
+    if(valid){
 
-            <div class="check">
-                <span>✓</span> Modern Learning Environment
-            </div>
+        document.getElementById("loginPage").style.display="none";
+        document.getElementById("dashboard").style.display="block";
 
-            <div class="check">
-                <span>✓</span> Student-Focused Education
-            </div>
+        createDashboard(type);
 
-            <div class="check">
-                <span>✓</span> Future-Ready Skills
-            </div>
+    }else{
 
-        </div>
+        document.getElementById("error").innerText =
+        "Incorrect username or password.";
 
-    </div>
+    }
 
-</section>
-
-
-<!-- ================= CTA ================= -->
-
-<section class="cta" id="contact">
-
-    <h2>Ready To Start Your Journey?</h2>
-
-    <p>
-        Join Paul Academy and take the next step
-        toward a brighter future.
-    </p>
-
-    <a href="#courses" class="btn btn-primary">
-        Start Learning →
-    </a>
-
-</section>
+}
 
 
-<!-- ================= FOOTER ================= -->
+function createDashboard(type){
 
-<footer>
+    const menu = document.getElementById("menu");
+    const cards = document.getElementById("cards");
+    const content = document.getElementById("content");
 
-    <div class="footer-content">
+    menu.innerHTML="";
+    cards.innerHTML="";
 
-        <div>
+    document.getElementById("dashboardTitle").innerText =
+        type.charAt(0).toUpperCase()+type.slice(1)+" Dashboard";
 
-            <h3>PAUL ACADEMY</h3>
-
-            <p>
-                Learn Today. Lead Tomorrow.
-                <br>
-                Quality education for a better future.
-            </p>
-
-        </div>
+    document.getElementById("welcomeUser").innerText =
+        "Welcome, "+type;
 
 
-        <div>
+    if(type === "admin"){
 
-            <h3>Quick Links</h3>
+        addMenu("👨‍🎓 Students");
+        addMenu("👨‍🏫 Teachers");
+        addMenu("👨‍👩‍👧 Parents");
+        addMenu("🏫 Classes");
+        addMenu("📚 Subjects");
+        addMenu("📝 Attendance");
+        addMenu("📊 Results");
+        addMenu("📢 Announcements");
 
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#courses">Courses</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+        createCard("Students","250");
+        createCard("Teachers","25");
+        createCard("Classes","16");
+        createCard("Subjects","12");
 
-        </div>
-
-
-        <div>
-
-            <h3>Contact</h3>
-
-            <p>
-                📧 info@paulacademy.com
-            </p>
-
-            <p>
-                📞 +251 900 000 000
-            </p>
-
-        </div>
-
-    </div>
+        content.innerHTML = 
+            <h2>Admin Dashboard</h2>
+            <p>Manage students, teachers, classes, subjects, attendance and results.</p>
+        ;
+    }
 
 
-    <div class="copyright">
-        © 2026 PAUL ACADEMY. All Rights Reserved.
-    </div>
-[8/22/2026 8:59 PM] Paulos Bunaro: </footer>
+    if(type === "teacher"){
+
+        addMenu("🏫 My Classes");
+        addMenu("📝 Student Attendance");
+        addMenu("📚 Homework");
+        addMenu("📊 Enter Marks");
+        addMenu("💬 Parent Messages");
+
+        createCard("My Students","120");
+        createCard("My Classes","4");
+        createCard("Homework","18");
+        createCard("Pending Marks","5");
+
+        content.innerHTML = 
+            <h2>Teacher Dashboard</h2>
+            <p>Manage your classes, attendance, homework and student marks.</p>
+        ;
+    }
+
+
+    if(type === "parent"){
+
+        addMenu("📝 Child Attendance");
+        addMenu("📊 Results");
+        addMenu("📚 Homework");
+        addMenu("💬 Teacher Messages");
+        addMenu("📢 Announcements");
+
+        createCard("Children","2");
+        createCard("Attendance","95%");
+        createCard("Average Result","82%");
+        createCard("Homework","6");
+
+        content.innerHTML = 
+            <h2>Parent Dashboard</h2>
+            <p>Monitor your child's attendance, results and homework.</p>
+        ;
+    }
+
+
+    if(type === "student"){
+[9/12/2026 1:04 PM] Paulos Bunaro: addMenu("📚 Subjects");
+        addMenu("📝 Homework");
+        addMenu("📊 Results");
+        addMenu("📅 Attendance");
+        addMenu("📖 Learning Materials");
+
+        createCard("Subjects","8");
+        createCard("Homework","4");
+        createCard("Average Result","85%");
+        createCard("Attendance","96%");
+
+        content.innerHTML = 
+            <h2>Student Dashboard</h2>
+            <p>View your subjects, homework, results, attendance and learning materials.</p>
+        ;
+    }
+
+}
+
+
+function addMenu(text){
+
+    const menu = document.getElementById("menu");
+
+    const button = document.createElement("button");
+
+    button.innerText = text;
+
+    button.onclick = function(){
+
+        document.getElementById("content").innerHTML = 
+            <h2>${text}</h2>
+            <p>This section will be connected to the database in the next version.</p>
+        ;
+
+    };
+
+    menu.appendChild(button);
+
+}
+
+
+function createCard(title,number){
+
+    const cards = document.getElementById("cards");
+
+    const card = document.createElement("div");
+
+    card.className="card";
+
+    card.innerHTML=
+        <h3>${title}</h3>
+        <div class="number">${number}</div>
+    ;
+
+    cards.appendChild(card);
+
+}
+
+
+function logout(){
+
+    document.getElementById("dashboard").style.display="none";
+    document.getElementById("loginPage").style.display="flex";
+
+    document.getElementById("username").value="";
+    document.getElementById("password").value="";
+    document.getElementById("error").innerText="";
+
+}
+
+</script>
 
 </body>
 </html>
