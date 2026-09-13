@@ -1,4 +1,4 @@
-[9/13/2026 5:46 AM] Paulos Bunaro: <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -6,1745 +6,236 @@
 <title>School Online System</title>
 
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+body{
+    margin:0;
+    font-family:Arial;
+    background:#f2f5f9;
 }
 
-body {
-    background: #f4f6f9;
-    color: #222;
+.login{
+    width:350px;
+    margin:100px auto;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 20px #aaa;
 }
 
-/* LOGIN */
-#loginPage {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, #173b75, #2878c8);
+h1{
+    text-align:center;
+    color:#174a8b;
 }
 
-.login-box {
-    width: 380px;
-    max-width: 92%;
-    background: white;
-    padding: 35px;
-    border-radius: 15px;
-    box-shadow: 0 10px 35px rgba(0,0,0,.2);
+input,select{
+    width:100%;
+    padding:13px;
+    margin:10px 0;
+    box-sizing:border-box;
 }
 
-.login-box h1 {
-    text-align: center;
-    color: #173b75;
-    margin-bottom: 10px;
+button{
+    width:100%;
+    padding:13px;
+    background:#174a8b;
+    color:white;
+    border:0;
+    border-radius:7px;
+    cursor:pointer;
 }
 
-.login-box p {
-    text-align: center;
-    color: #777;
-    margin-bottom: 25px;
+#error{
+    color:red;
+    text-align:center;
+    margin-top:10px;
 }
 
-.login-box input,
-.login-box select {
-    width: 100%;
-    padding: 13px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 15px;
+#dashboard{
+    display:none;
 }
 
-.login-btn {
-    width: 100%;
-    padding: 13px;
-    border: none;
-    border-radius: 8px;
-    background: #173b75;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
+.header{
+    background:#174a8b;
+    color:white;
+    padding:20px;
 }
 
-.login-btn:hover {
-    background: #0e2a55;
+.container{
+    padding:25px;
 }
 
-#error {
-    color: red;
-    text-align: center;
-    margin-top: 12px;
+.card{
+    display:inline-block;
+    background:white;
+    width:200px;
+    margin:10px;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 3px 10px #ddd;
 }
 
-/* APP */
-#app {
-    display: none;
-    min-height: 100vh;
-}
-
-.sidebar {
-    width: 240px;
-    height: 100vh;
-    position: fixed;
-    left: 0;
-    top: 0;
-    background: #173b75;
-    color: white;
-    padding: 20px 0;
-    overflow-y: auto;
-}
-
-.sidebar h2 {
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-.sidebar button {
-    display: block;
-    width: 100%;
-    padding: 14px 20px;
-    background: transparent;
-    color: white;
-    border: none;
-    text-align: left;
-    cursor: pointer;
-    font-size: 15px;
-}
-
-.sidebar button:hover,
-.sidebar button.active {
-    background: #2878c8;
-}
-
-.main {
-    margin-left: 240px;
-    padding: 25px;
-}
-
-.topbar {
-    background: white;
-    padding: 18px 22px;
-    border-radius: 12px;
-    margin-bottom: 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,.06);
-}
-
-.logout {
-    background: #dc3545;
-    color: white;
-    border: none;
-    padding: 9px 15px;
-    border-radius: 7px;
-    cursor: pointer;
-}
-
-/* DASHBOARD CARDS */
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 18px;
-    margin-bottom: 25px;
-}
-
-.card {
-    background: white;
-    padding: 22px;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0,0,0,.06);
-}
-
-.card h3 {
-    color: #666;
-    font-size: 14px;
-    margin-bottom: 10px;
-}
-
-.card .number {
-    font-size: 30px;
-    font-weight: bold;
-    color: #173b75;
-}
-
-/* CONTENT */
-.content-box {
-    background: white;
-    padding: 22px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 10px rgba(0,0,0,.06);
-}
-
-.content-box h2 {
-    margin-bottom: 18px;
-    color: #173b75;
-}
-
-.form-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 12px;
-}
-
-.form-grid input,
-.form-grid select {
-    padding: 11px;
-    border: 1px solid #ddd;
-    border-radius: 7px;
-}
-
-.primary-btn {
-    background: #173b75;
-    color: white;
-    border: none;
-    padding: 11px 17px;
-    border-radius: 7px;
-    cursor: pointer;
-}
-
-.danger-btn {
-    background: #dc3545;
-    color: white;
-    border: none;
-    padding: 7px 11px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
-}
-
-th, td {
-    padding: 12px;
-    border-bottom: 1px solid #eee;
-    text-align: left;
-}
-
-th {
-    background: #f1f4f8;
-    color: #173b75;
-}
-
-/* MOBILE */
-@media(max-width: 700px) {
-    .sidebar {
-        width: 200px;
-    }
-
-    .main {
-        margin-left: 200px;
-        padding: 15px;
-    }
-
-    .topbar {
-        flex-direction: column;
-        gap: 10px;
-        align-items: flex-start;
-    }
+.logout{
+    width:auto;
+    background:#d62828;
+    float:right;
 }
 </style>
 </head>
 
 <body>
-[9/13/2026 5:46 AM] Paulos Bunaro: <!-- LOGIN PAGE -->
-<div id="loginPage">
 
-    <div class="login-box">
-        <h1>🏫 School Online</h1>
-        <p>School Management System</p>
+<!-- LOGIN -->
 
-        <input type="text" id="username" placeholder="Username">
+<div id="loginPage" class="login">
 
-        <input type="password" id="password" placeholder="Password">
+<h1>🏫 School Online</h1>
 
-        <select id="role">
-            <option value="admin">Admin</option>
-            <option value="teacher">Teacher</option>
-            <option value="parent">Parent</option>
-            <option value="student">Student</option>
-        </select>
+<input id="username" type="text" placeholder="Username">
 
-        <button class="login-btn" onclick="login()">Login</button>
+<input id="password" type="password" placeholder="Password">
 
-        <div id="error"></div>
+<select id="role">
+<option value="admin">Admin</option>
+<option value="teacher">Teacher</option>
+<option value="parent">Parent</option>
+<option value="student">Student</option>
+</select>
 
-        <p style="margin-top:20px;font-size:12px;">
-            Demo: admin/admin123<br>
-            teacher/teacher123<br>
-            parent/parent123<br>
-            student/student123
-        </p>
-    </div>
+<button type="button" onclick="login()">LOGIN</button>
+
+<div id="error"></div>
 
 </div>
 
 
-<!-- APPLICATION -->
-<div id="app">
+<!-- DASHBOARD -->
 
-    <aside class="sidebar">
+<div id="dashboard">
 
-        <h2>🏫 School</h2>
+<div class="header">
 
-        <div id="menu"></div>
+<button class="logout" type="button" onclick="logout()">
+Logout
+</button>
 
-    </aside>
+<h2>🏫 School Online System</h2>
 
+<p id="welcome"></p>
 
-    <main class="main">
+</div>
 
-        <div class="topbar">
-            <div>
-                <h2 id="pageTitle">Dashboard</h2>
-                <small id="welcome"></small>
-            </div>
+<div class="container">
 
-            <button class="logout" onclick="logout()">Logout</button>
-        </div>
+<h1>Dashboard</h1>
 
-        <div id="pageContent"></div>
+<div class="card">
+<h3>👨‍🎓 Students</h3>
+<h2>0</h2>
+</div>
 
-    </main>
+<div class="card">
+<h3>👨‍🏫 Teachers</h3>
+<h2>0</h2>
+</div>
+
+<div class="card">
+<h3>👨‍👩‍👧 Parents</h3>
+<h2>0</h2>
+</div>
+
+<div class="card">
+<h3>📝 Attendance</h3>
+<h2>0</h2>
+</div>
+
+</div>
 
 </div>
 
 
 <script>
 
-/* =========================
-   LOCAL STORAGE DATABASE
-========================= */
+function login(){
 
-if (!localStorage.getItem("students")) {
-    localStorage.setItem("students", JSON.stringify([
-        {
-            id: 1,
-            name: "Abebe Kebede",
-            className: "Grade 7",
-            parent: "Mulu"
-        }
-    ]));
-}
-
-if (!localStorage.getItem("teachers")) {
-    localStorage.setItem("teachers", JSON.stringify([
-        {
-            id: 1,
-            name: "Teacher Example",
-            subject: "Mathematics"
-        }
-    ]));
-}
-
-if (!localStorage.getItem("parents")) {
-    localStorage.setItem("parents", JSON.stringify([
-        {
-            id: 1,
-            name: "Mulu Kebede",
-            child: "Abebe Kebede"
-        }
-    ]));
-}
-
-if (!localStorage.getItem("announcements")) {
-    localStorage.setItem("announcements", JSON.stringify([]));
-}
-
-if (!localStorage.getItem("homework")) {
-    localStorage.setItem("homework", JSON.stringify([]));
-}
-
-if (!localStorage.getItem("results")) {
-    localStorage.setItem("results", JSON.stringify([]));
-}
-
-if (!localStorage.getItem("attendance")) {
-    localStorage.setItem("attendance", JSON.stringify([]));
-}
-
-if (!localStorage.getItem("messages")) {
-    localStorage.setItem("messages", JSON.stringify([]));
-}
-
-
-/* =========================
-   LOGIN
-========================= */
-
-let currentUser = null;
-
-function login() {
-
-    const username =
+    let username =
         document.getElementById("username").value.trim();
 
-    const password =
+    let password =
         document.getElementById("password").value.trim();
 
-    const role =
+    let role =
         document.getElementById("role").value;
 
-    let valid = false;
-
-    if (role === "admin" &&
+    if(
         username === "admin" &&
-        password === "admin123") {
-        valid = true;
-    }
+        password === "admin123" &&
+        role === "admin"
+    ){
 
-    if (role === "teacher" &&
+        document.getElementById("loginPage").style.display="none";
+
+        document.getElementById("dashboard").style.display="block";
+
+        document.getElementById("welcome").innerText =
+            "Welcome Admin";
+
+    }
+    else if(
         username === "teacher" &&
-        password === "teacher123") {
-        valid = true;
-    }
+        password === "teacher123" &&
+        role === "teacher"
+    ){
 
-    if (role === "parent" &&
+        document.getElementById("loginPage").style.display="none";
+
+        document.getElementById("dashboard").style.display="block";
+
+        document.getElementById("welcome").innerText =
+            "Welcome Teacher";
+
+    }
+    else if(
         username === "parent" &&
-        password === "parent123") {
-        valid = true;
-    }
+        password === "parent123" &&
+        role === "parent"
+    ){
 
-    if (role === "student" &&
+        document.getElementById("loginPage").style.display="none";
+
+        document.getElementById("dashboard").style.display="block";
+
+        document.getElementById("welcome").innerText =
+            "Welcome Parent";
+
+    }
+    else if(
         username === "student" &&
-        password === "student123") {
-        valid = true;
-    }
+        password === "student123" &&
+        role === "student"
+    ){
 
-    if (!valid) {
+        document.getElementById("loginPage").style.display="none";
+
+        document.getElementById("dashboard").style.display="block";
+
+        document.getElementById("welcome").innerText =
+            "Welcome Student";
+
+    }
+    else{
+
         document.getElementById("error").innerText =
-            "Invalid username, password or role.";
-        return;
+            "Username, password or role is incorrect.";
+
     }
-
-    currentUser = {
-        username,
-        role
-    };
-
-    localStorage.setItem(
-        "currentUser",
-        JSON.stringify(currentUser)
-    );
-
-    document.getElementById("loginPage").style.display = "none";
-    document.getElementById("app").style.display = "block";
-
-    setupDashboard();
 }
 
 
-/* =========================
-   LOGOUT
-========================= */
+function logout(){
 
-function logout() {
+    document.getElementById("dashboard").style.display="none";
 
-    currentUser = null;
-[9/13/2026 5:46 AM] Paulos Bunaro: localStorage.removeItem("currentUser");
+    document.getElementById("loginPage").style.display="block";
 
-    document.getElementById("app").style.display = "none";
-    document.getElementById("loginPage").style.display = "flex";
-
-    document.getElementById("username").value = "";
-    document.getElementById("password").value = "";
-}
-
-
-/* =========================
-   DASHBOARD SETUP
-========================= */
-
-function setupDashboard() {
-
-    document.getElementById("welcome").innerText =
-        "Logged in as " +
-        currentUser.username +
-        " (" +
-        currentUser.role +
-        ")";
-
-    let menu = "";
-
-    if (currentUser.role === "admin") {
-
-        menu = `
-            <button onclick="showPage('dashboard')">🏠 Dashboard</button>
-            <button onclick="showPage('students')">👨‍🎓 Students</button>
-            <button onclick="showPage('teachers')">👨‍🏫 Teachers</button>
-            <button onclick="showPage('parents')">👨‍👩‍👧 Parents</button>
-            <button onclick="showPage('classes')">🏫 Classes</button>
-            <button onclick="showPage('subjects')">📚 Subjects</button>
-            <button onclick="showPage('attendance')">📝 Attendance</button>
-            <button onclick="showPage('results')">📊 Results</button>
-            <button onclick="showPage('homework')">📚 Homework</button>
-            <button onclick="showPage('messages')">💬 Messages</button>
-            <button onclick="showPage('announcements')">📢 Announcements</button>
-            <button onclick="showPage('materials')">📖 Materials</button>
-        `;
-
-    } else if (currentUser.role === "teacher") {
-
-        menu = `
-            <button onclick="showPage('dashboard')">🏠 Dashboard</button>
-            <button onclick="showPage('students')">👨‍🎓 Students</button>
-            <button onclick="showPage('attendance')">📝 Attendance</button>
-            <button onclick="showPage('results')">📊 Results</button>
-            <button onclick="showPage('homework')">📚 Homework</button>
-            <button onclick="showPage('messages')">💬 Parent Messages</button>
-            <button onclick="showPage('announcements')">📢 Announcements</button>
-            <button onclick="showPage('materials')">📖 Materials</button>
-        `;
-
-    } else if (currentUser.role === "parent") {
-
-        menu = `
-            <button onclick="showPage('dashboard')">🏠 Dashboard</button>
-            <button onclick="showPage('students')">👨‍🎓 My Child</button>
-            <button onclick="showPage('attendance')">📝 Attendance</button>
-            <button onclick="showPage('results')">📊 Results</button>
-            <button onclick="showPage('homework')">📚 Homework</button>
-            <button onclick="showPage('messages')">💬 Messages</button>
-            <button onclick="showPage('announcements')">📢 Announcements</button>
-            <button onclick="showPage('materials')">📖 Materials</button>
-        `;
-
-    } else if (currentUser.role === "student") {
-
-        menu = `
-            <button onclick="showPage('dashboard')">🏠 Dashboard</button>
-            <button onclick="showPage('results')">📊 My Results</button>
-            <button onclick="showPage('attendance')">📝 Attendance</button>
-            <button onclick="showPage('homework')">📚 Homework</button>
-            <button onclick="showPage('announcements')">📢 Announcements</button>
-            <button onclick="showPage('materials')">📖 Materials</button>
-        `;
-    }
-
-    document.getElementById("menu").innerHTML = menu;
-
-    showPage("dashboard");
-}
-
-
-/* =========================
-   PAGE ROUTER
-========================= */
-
-function showPage(page) {
-
-    const content =
-        document.getElementById("pageContent");
-
-    document.querySelectorAll(".sidebar button")
-        .forEach(btn => btn.classList.remove("active"));
-
-    if (page === "dashboard") dashboardPage();
-[9/13/2026 5:46 AM] Paulos Bunaro: if (page === "students") studentsPage();
-    if (page === "teachers") teachersPage();
-    if (page === "parents") parentsPage();
-    if (page === "classes") classesPage();
-    if (page === "subjects") subjectsPage();
-    if (page === "attendance") attendancePage();
-    if (page === "results") resultsPage();
-    if (page === "homework") homeworkPage();
-    if (page === "messages") messagesPage();
-    if (page === "announcements") announcementsPage();
-    if (page === "materials") materialsPage();
-}
-
-
-/* =========================
-   DASHBOARD
-========================= */
-
-function dashboardPage() {
-
-    document.getElementById("pageTitle").innerText =
-        "Dashboard";
-
-    const students =
-        JSON.parse(localStorage.getItem("students"));
-
-    const teachers =
-        JSON.parse(localStorage.getItem("teachers"));
-
-    const parents =
-        JSON.parse(localStorage.getItem("parents"));
-
-    document.getElementById("pageContent").innerHTML = `
-
-        <div class="cards">
-
-            <div class="card">
-                <h3>Students</h3>
-                <div class="number">${students.length}</div>
-            </div>
-
-            <div class="card">
-                <h3>Teachers</h3>
-                <div class="number">${teachers.length}</div>
-            </div>
-
-            <div class="card">
-                <h3>Parents</h3>
-                <div class="number">${parents.length}</div>
-            </div>
-
-            <div class="card">
-                <h3>Role</h3>
-                <div class="number"
-                     style="font-size:20px;">
-                     ${currentUser.role}
-                </div>
-            </div>
-
-        </div>
-
-        <div class="content-box">
-
-            <h2>Welcome to School Online System</h2>
-
-            <p>
-                Manage students, teachers, parents,
-                attendance, results, homework,
-                announcements and learning materials.
-            </p>
-
-        </div>
-    `;
-}
-
-
-/* =========================
-   STUDENTS
-========================= */
-
-function studentsPage() {
-
-    document.getElementById("pageTitle").innerText =
-        "Students";
-
-    const students =
-        JSON.parse(localStorage.getItem("students"));
-
-    let rows = "";
-
-    students.forEach((s, index) => {
-
-        rows += `
-            <tr>
-                <td>${s.id}</td>
-                <td>${s.name}</td>
-                <td>${s.className}</td>
-                <td>${s.parent}</td>
-                ${
-                    currentUser.role === "admin"
-                    ?
-                    `<td>
-                        <button class="danger-btn"
-                        onclick="deleteStudent(${index})">
-                        Delete
-                        </button>
-                    </td>`
-                    : ""
-                }
-            </tr>
-        `;
-    });
-
-    document.getElementById("pageContent").innerHTML = `
-
-        ${
-            currentUser.role === "admin"
-            ?
-            `
-            <div class="content-box">
-
-                <h2>Add Student</h2>
-
-                <div class="form-grid">
-
-                    <input id="studentName"
-                    placeholder="Student name">
-
-                    <input id="studentClass"
-                    placeholder="Class">
-
-                    <input id="studentParent"
-                    placeholder="Parent name">
-
-                    <button class="primary-btn"
-                    onclick="addStudent()">
-                    Add Student
-                    </button>
-
-                </div>
-
-            </div>
-            `
-            : ""
-        }
-
-        <div class="content-box">
-
-            <h2>Student List</h2>
-
-            <table>
-
-                <thead>
-                    <tr>
-                        <th>ID</th>
-[9/13/2026 5:46 AM] Paulos Bunaro: <th>Name</th>
-                        <th>Class</th>
-                        <th>Parent</th>
-                        ${
-                            currentUser.role === "admin"
-                            ? "<th>Action</th>"
-                            : ""
-                        }
-                    </tr>
-                </thead>
-
-                <tbody>
-                    ${rows}
-                </tbody>
-
-            </table>
-
-        </div>
-    `;
-}
-
-
-function addStudent() {
-
-    const name =
-        document.getElementById("studentName").value.trim();
-
-    const className =
-        document.getElementById("studentClass").value.trim();
-
-    const parent =
-        document.getElementById("studentParent").value.trim();
-
-    if (!name || !className) {
-        alert("Please enter student name and class.");
-        return;
-    }
-
-    const students =
-        JSON.parse(localStorage.getItem("students"));
-
-    students.push({
-        id: Date.now(),
-        name,
-        className,
-        parent
-    });
-
-    localStorage.setItem(
-        "students",
-        JSON.stringify(students)
-    );
-
-    studentsPage();
-}
-
-
-function deleteStudent(index) {
-
-    if (!confirm("Delete this student?")) return;
-
-    const students =
-        JSON.parse(localStorage.getItem("students"));
-
-    students.splice(index, 1);
-
-    localStorage.setItem(
-        "students",
-        JSON.stringify(students)
-    );
-
-    studentsPage();
-}
-
-
-/* =========================
-   TEACHERS
-========================= */
-
-function teachersPage() {
-
-    document.getElementById("pageTitle").innerText =
-        "Teachers";
-
-    const teachers =
-        JSON.parse(localStorage.getItem("teachers"));
-
-    let rows = "";
-
-    teachers.forEach((t, index) => {
-
-        rows += `
-            <tr>
-                <td>${t.id}</td>
-                <td>${t.name}</td>
-                <td>${t.subject}</td>
-
-                ${
-                    currentUser.role === "admin"
-                    ?
-                    `<td>
-                        <button class="danger-btn"
-                        onclick="deleteTeacher(${index})">
-                        Delete
-                        </button>
-                    </td>`
-                    : ""
-                }
-            </tr>
-        `;
-    });
-
-    document.getElementById("pageContent").innerHTML = `
-
-        ${
-            currentUser.role === "admin"
-            ?
-            `
-            <div class="content-box">
-
-                <h2>Add Teacher</h2>
-
-                <div class="form-grid">
-
-                    <input id="teacherName"
-                    placeholder="Teacher name">
-
-                    <input id="teacherSubject"
-                    placeholder="Subject">
-
-                    <button class="primary-btn"
-                    onclick="addTeacher()">
-                    Add Teacher
-                    </button>
-
-                </div>
-
-            </div>
-            `
-            : ""
-        }
-
-        <div class="content-box">
-
-            <h2>Teacher List</h2>
-
-            <table>
-
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Subject</th>
-                        ${
-                            currentUser.role === "admin"
-                            ? "<th>Action</th>"
-                            : ""
-                        }
-                    </tr>
-                </thead>
-
-                <tbody>${rows}</tbody>
-
-            </table>
-
-        </div>
-    `;
-}
-
-
-function addTeacher() {
-
-    const name =
-        document.getElementById("teacherName").value.trim();
-
-    const subject =
-        document.getElementById("teacherSubject").value.trim();
-
-    if (!name || !subject) {
-        alert("Enter teacher name and subject.");
-        return;
-    }
-
-    const teachers =
-        JSON.parse(localStorage.getItem("teachers"));
-
-    teachers.push({
-        id: Date.now(),
-        name,
-        subject
-    });
-[9/13/2026 5:46 AM] Paulos Bunaro: localStorage.setItem(
-        "teachers",
-        JSON.stringify(teachers)
-    );
-
-    teachersPage();
-}
-
-
-function deleteTeacher(index) {
-
-    if (!confirm("Delete this teacher?")) return;
-
-    const teachers =
-        JSON.parse(localStorage.getItem("teachers"));
-
-    teachers.splice(index, 1);
-
-    localStorage.setItem(
-        "teachers",
-        JSON.stringify(teachers)
-    );
-
-    teachersPage();
-}
-
-
-/* =========================
-   PARENTS
-========================= */
-
-function parentsPage() {
-
-    document.getElementById("pageTitle").innerText =
-        "Parents";
-
-    const parents =
-        JSON.parse(localStorage.getItem("parents"));
-
-    let rows = "";
-
-    parents.forEach((p, index) => {
-
-        rows += `
-            <tr>
-                <td>${p.id}</td>
-                <td>${p.name}</td>
-                <td>${p.child}</td>
-
-                ${
-                    currentUser.role === "admin"
-                    ?
-                    `<td>
-                        <button class="danger-btn"
-                        onclick="deleteParent(${index})">
-                        Delete
-                        </button>
-                    </td>`
-                    : ""
-                }
-            </tr>
-        `;
-    });
-
-    document.getElementById("pageContent").innerHTML = `
-
-        ${
-            currentUser.role === "admin"
-            ?
-            `
-            <div class="content-box">
-
-                <h2>Add Parent</h2>
-
-                <div class="form-grid">
-
-                    <input id="parentName"
-                    placeholder="Parent name">
-
-                    <input id="parentChild"
-                    placeholder="Child name">
-
-                    <button class="primary-btn"
-                    onclick="addParent()">
-                    Add Parent
-                    </button>
-
-                </div>
-
-            </div>
-            `
-            : ""
-        }
-
-        <div class="content-box">
-
-            <h2>Parent List</h2>
-
-            <table>
-
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Child</th>
-                        ${
-                            currentUser.role === "admin"
-                            ? "<th>Action</th>"
-                            : ""
-                        }
-                    </tr>
-                </thead>
-
-                <tbody>${rows}</tbody>
-
-            </table>
-
-        </div>
-    `;
-}
-
-
-function addParent() {
-
-    const name =
-        document.getElementById("parentName").value.trim();
-
-    const child =
-        document.getElementById("parentChild").value.trim();
-
-    if (!name || !child) {
-        alert("Enter parent and child name.");
-        return;
-    }
-
-    const parents =
-        JSON.parse(localStorage.getItem("parents"));
-
-    parents.push({
-        id: Date.now(),
-        name,
-        child
-    });
-
-    localStorage.setItem(
-        "parents",
-        JSON.stringify(parents)
-    );
-
-    parentsPage();
-}
-
-
-function deleteParent(index) {
-
-    if (!confirm("Delete this parent?")) return;
-
-    const parents =
-        JSON.parse(localStorage.getItem("parents"));
-
-    parents.splice(index, 1);
-
-    localStorage.setItem(
-        "parents",
-        JSON.stringify(parents)
-    );
-
-    parentsPage();
-}
-
-
-/* =========================
-   CLASSES
-========================= */
-
-function classesPage() {
-
-    document.getElementById("pageTitle").innerText =
-        "Classes";
-
-    document.getElementById("pageContent").innerHTML = `
-
-        <div class="content-box">
-
-            <h2>Classes</h2>
-
-            <table>
-
-                <tr>
-                    <th>Class</th>
-                    <th>Students</th>
-                </tr>
-
-                <tr>
-                    <td>Grade 7</td>
-                    <td>1</td>
-                </tr>
-
-                <tr>
-                    <td>Grade 8</td>
-                    <td>0</td>
-                </tr>
-
-            </table>
-
-        </div>
-    `;
-}
-[9/13/2026 5:46 AM] Paulos Bunaro: /* =========================
-   SUBJECTS
-========================= */
-
-function subjectsPage() {
-
-    document.getElementById("pageTitle").innerText =
-        "Subjects";
-
-    document.getElementById("pageContent").innerHTML = `
-
-        <div class="content-box">
-
-            <h2>Subjects</h2>
-
-            <ul style="line-height:2;">
-                <li>Mathematics</li>
-                <li>English</li>
-                <li>Physics</li>
-                <li>Chemistry</li>
-                <li>Biology</li>
-                <li>Social Studies</li>
-                <li>General Science</li>
-                <li>ICT</li>
-            </ul>
-
-        </div>
-    `;
-}
-
-
-/* =========================
-   ATTENDANCE
-========================= */
-
-function attendancePage() {
-
-    document.getElementById("pageTitle").innerText =
-        "Attendance";
-
-    const attendance =
-        JSON.parse(localStorage.getItem("attendance"));
-
-    let rows = "";
-
-    attendance.forEach((a, index) => {
-
-        rows += `
-            <tr>
-                <td>${a.student}</td>
-                <td>${a.date}</td>
-                <td>${a.status}</td>
-            </tr>
-        `;
-    });
-
-    document.getElementById("pageContent").innerHTML = `
-
-        ${
-            currentUser.role === "admin" ||
-            currentUser.role === "teacher"
-            ?
-            `
-            <div class="content-box">
-
-                <h2>Record Attendance</h2>
-
-                <div class="form-grid">
-
-                    <input id="attendanceStudent"
-                    placeholder="Student name">
-
-                    <input id="attendanceDate"
-                    type="date">
-
-                    <select id="attendanceStatus">
-                        <option>Present</option>
-                        <option>Absent</option>
-                        <option>Late</option>
-                    </select>
-
-                    <button class="primary-btn"
-                    onclick="addAttendance()">
-                    Save
-                    </button>
-
-                </div>
-
-            </div>
-            `
-            : ""
-        }
-
-        <div class="content-box">
-
-            <h2>Attendance Records</h2>
-
-            <table>
-
-                <tr>
-                    <th>Student</th>
-                    <th>Date</th>
-                    <th>Status</th>
-                </tr>
-
-                ${rows}
-
-            </table>
-
-        </div>
-    `;
-}
-
-
-function addAttendance() {
-
-    const student =
-        document.getElementById("attendanceStudent").value.trim();
-
-    const date =
-        document.getElementById("attendanceDate").value;
-
-    const status =
-        document.getElementById("attendanceStatus").value;
-
-    if (!student || !date) {
-        alert("Enter student and date.");
-        return;
-    }
-
-    const attendance =
-        JSON.parse(localStorage.getItem("attendance"));
-
-    attendance.push({
-        student,
-        date,
-        status
-    });
-
-    localStorage.setItem(
-        "attendance",
-        JSON.stringify(attendance)
-    );
-
-    attendancePage();
-}
-
-
-/* =========================
-   RESULTS
-========================= */
-
-function resultsPage() {
-
-    document.getElementById("pageTitle").innerText =
-        "Results & Marks";
-
-    const results =
-        JSON.parse(localStorage.getItem("results"));
-
-    let rows = "";
-
-    results.forEach(r => {
-
-        rows += `
-            <tr>
-                <td>${r.student}</td>
-                <td>${r.subject}</td>
-                <td>${r.mark}</td>
-            </tr>
-        `;
-    });
-
-    document.getElementById("pageContent").innerHTML = `
-
-        ${
-            currentUser.role === "admin" ||
-            currentUser.role === "teacher"
-            ?
-            `
-            <div class="content-box">
-
-                <h2>Add Result</h2>
-
-                <div class="form-grid">
-
-                    <input id="resultStudent"
-                    placeholder="Student name">
-
-                    <input id="resultSubject"
-                    placeholder="Subject">
-[9/13/2026 5:46 AM] Paulos Bunaro: <input id="resultMark"
-                    type="number"
-                    placeholder="Mark">
-
-                    <button class="primary-btn"
-                    onclick="addResult()">
-                    Save Result
-                    </button>
-
-                </div>
-
-            </div>
-            `
-            : ""
-        }
-
-        <div class="content-box">
-
-            <h2>Results</h2>
-
-            <table>
-
-                <tr>
-                    <th>Student</th>
-                    <th>Subject</th>
-                    <th>Mark</th>
-                </tr>
-
-                ${rows}
-
-            </table>
-
-        </div>
-    `;
-}
-
-
-function addResult() {
-
-    const student =
-        document.getElementById("resultStudent").value.trim();
-
-    const subject =
-        document.getElementById("resultSubject").value.trim();
-
-    const mark =
-        document.getElementById("resultMark").value;
-
-    if (!student || !subject || mark === "") {
-        alert("Fill all fields.");
-        return;
-    }
-
-    const results =
-        JSON.parse(localStorage.getItem("results"));
-
-    results.push({
-        student,
-        subject,
-        mark
-    });
-
-    localStorage.setItem(
-        "results",
-        JSON.stringify(results)
-    );
-
-    resultsPage();
-}
-
-
-/* =========================
-   HOMEWORK
-========================= */
-
-function homeworkPage() {
-
-    document.getElementById("pageTitle").innerText =
-        "Homework";
-
-    const homework =
-        JSON.parse(localStorage.getItem("homework"));
-
-    let rows = "";
-
-    homework.forEach(h => {
-
-        rows += `
-            <tr>
-                <td>${h.subject}</td>
-                <td>${h.title}</td>
-                <td>${h.description}</td>
-                <td>${h.date}</td>
-            </tr>
-        `;
-    });
-
-    document.getElementById("pageContent").innerHTML = `
-
-        ${
-            currentUser.role === "admin" ||
-            currentUser.role === "teacher"
-            ?
-            `
-            <div class="content-box">
-
-                <h2>Add Homework</h2>
-
-                <div class="form-grid">
-
-                    <input id="hwSubject"
-                    placeholder="Subject">
-
-                    <input id="hwTitle"
-                    placeholder="Title">
-
-                    <input id="hwDescription"
-                    placeholder="Description">
-
-                    <input id="hwDate"
-                    type="date">
-
-                    <button class="primary-btn"
-                    onclick="addHomework()">
-                    Add Homework
-                    </button>
-
-                </div>
-
-            </div>
-            `
-            : ""
-        }
-
-        <div class="content-box">
-
-            <h2>Homework List</h2>
-
-            <table>
-
-                <tr>
-                    <th>Subject</th>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>Date</th>
-                </tr>
-
-                ${rows}
-
-            </table>
-
-        </div>
-    `;
-}
-
-
-function addHomework() {
-
-    const subject =
-        document.getElementById("hwSubject").value.trim();
-
-    const title =
-        document.getElementById("hwTitle").value.trim();
-
-    const description =
-        document.getElementById("hwDescription").value.trim();
-
-    const date =
-        document.getElementById("hwDate").value;
-
-    if (!subject || !title || !date) {
-        alert("Fill all required fields.");
-        return;
-    }
-
-    const homework =
-        JSON.parse(localStorage.getItem("homework"));
-
-    homework.push({
-        subject,
-        title,
-        description,
-        date
-    });
-
-    localStorage.setItem(
-        "homework",
-        JSON.stringify(homework)
-    );
-
-    homeworkPage();
-}
-
-
-/* =========================
-   MESSAGES
-========================= */
-
-function messagesPage() {
-
-    document.getElementById("pageTitle").innerText =
-        "Messages";
-
-    const messages =
-        JSON.parse(localStorage.getItem("messages"));
-
-    let rows = "";
-
-    messages.forEach(m => {
-[9/13/2026 5:46 AM] Paulos Bunaro: rows += `
-            <tr>
-                <td>${m.from}</td>
-                <td>${m.to}</td>
-                <td>${m.message}</td>
-            </tr>
-        `;
-    });
-
-    document.getElementById("pageContent").innerHTML = `
-
-        ${
-            currentUser.role === "admin" ||
-            currentUser.role === "teacher"
-            ?
-            `
-            <div class="content-box">
-
-                <h2>Send Message</h2>
-
-                <div class="form-grid">
-
-                    <input id="messageTo"
-                    placeholder="Parent name">
-
-                    <input id="messageText"
-                    placeholder="Message">
-
-                    <button class="primary-btn"
-                    onclick="sendMessage()">
-                    Send
-                    </button>
-
-                </div>
-
-            </div>
-            `
-            : ""
-        }
-
-        <div class="content-box">
-
-            <h2>Messages</h2>
-
-            <table>
-
-                <tr>
-                    <th>From</th>
-                    <th>To</th>
-                    <th>Message</th>
-                </tr>
-
-                ${rows}
-
-            </table>
-
-        </div>
-    `;
-}
-
-
-function sendMessage() {
-
-    const to =
-        document.getElementById("messageTo").value.trim();
-
-    const message =
-        document.getElementById("messageText").value.trim();
-
-    if (!to || !message) {
-        alert("Enter recipient and message.");
-        return;
-    }
-
-    const messages =
-        JSON.parse(localStorage.getItem("messages"));
-
-    messages.push({
-        from: currentUser.username,
-        to,
-        message
-    });
-
-    localStorage.setItem(
-        "messages",
-        JSON.stringify(messages)
-    );
-
-    messagesPage();
-}
-
-
-/* =========================
-   ANNOUNCEMENTS
-========================= */
-
-function announcementsPage() {
-
-    document.getElementById("pageTitle").innerText =
-        "Announcements";
-
-    const announcements =
-        JSON.parse(localStorage.getItem("announcements"));
-
-    let html = "";
-
-    announcements.forEach(a => {
-
-        html += `
-            <div class="content-box">
-
-                <h3>${a.title}</h3>
-
-                <p>${a.message}</p>
-
-                <small>${a.date}</small>
-
-            </div>
-        `;
-    });
-
-    document.getElementById("pageContent").innerHTML = `
-
-        ${
-            currentUser.role === "admin" ||
-            currentUser.role === "teacher"
-            ?
-            `
-            <div class="content-box">
-
-                <h2>New Announcement</h2>
-
-                <div class="form-grid">
-
-                    <input id="announcementTitle"
-                    placeholder="Title">
-
-                    <input id="announcementMessage"
-                    placeholder="Message">
-
-                    <button class="primary-btn"
-                    onclick="addAnnouncement()">
-                    Publish
-                    </button>
-
-                </div>
-
-            </div>
-            `
-            : ""
-        }
-
-        ${html}
-
-    `;
-}
-
-
-function addAnnouncement() {
-
-    const title =
-        document.getElementById("announcementTitle").value.trim();
-
-    const message =
-        document.getElementById("announcementMessage").value.trim();
-
-    if (!title || !message) {
-        alert("Enter title and message.");
-        return;
-    }
-
-    const announcements =
-        JSON.parse(localStorage.getItem("announcements"));
-
-    announcements.push({
-        title,
-        message,
-        date: new Date().toLocaleDateString()
-    });
-
-    localStorage.setItem(
-        "announcements",
-        JSON.stringify(announcements)
-    );
-
-    announcementsPage();
-}
-
-
-/* =========================
-   LEARNING MATERIALS
-========================= */
-
-function materialsPage() {
-
-    document.getElementById("pageTitle").innerText =
-        "Learning Materials";
-
-    document.getElementById("pageContent").innerHTML = `
-
-        <div class="content-box">
-
-            <h2>📖 Learning Materials</h2>
-[9/13/2026 5:46 AM] Paulos Bunaro: <p>
-                Learning materials section is ready.
-            </p>
-
-            <br>
-
-            <ul style="line-height:2;">
-
-                <li>📘 Mathematics Materials</li>
-
-                <li>📗 English Materials</li>
-
-                <li>📕 Science Materials</li>
-
-                <li>📙 Social Studies Materials</li>
-
-                <li>💻 ICT Materials</li>
-
-            </ul>
-
-        </div>
-    `;
-}
-
-
-/* =========================
-   AUTO LOGIN
-========================= */
-
-const savedUser =
-    localStorage.getItem("currentUser");
-
-if (savedUser) {
-
-    currentUser = JSON.parse(savedUser);
-
-    document.getElementById("loginPage").style.display = "none";
-
-    document.getElementById("app").style.display = "block";
-
-    setupDashboard();
 }
 
 </script>
